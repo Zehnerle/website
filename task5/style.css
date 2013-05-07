@@ -1,0 +1,214 @@
+﻿body { 
+	background-color: black; 
+	font-family: verdana, sans-serif;
+	font-size: 17px;
+	color: #c6c6c6;
+	margin: 100px 0px 0px 0px;
+}
+
+h1 {
+	color: #ffad10;
+	font-size: 25px;
+	margin: 0px;
+}
+
+h2 {
+	color: #ffad10;
+	font-size: 16px;
+}
+
+h3 {
+	color: #ffad10;
+	font-size: 16px;
+}
+
+font.annotation {
+	font-size: 10px;
+}
+
+div
+
+#paging {
+	font-size: 13px;
+	padding: 30px 0px 5px 0px;
+}
+
+.right {
+	float: right;
+	background-color: #ffad10;
+	
+	font-size: 30px;
+	font-weight: bold; 
+	color: white;
+	
+	height: 40px;
+	width: 400px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: 0;
+	padding: 4px 0px 0px 20px;
+}
+
+.left {
+	overflow: hidden;
+	margin: 15px 0px 2px 20px;
+		
+	font-size: 35px;
+	color: #333333;
+}
+
+.block {
+	background-color: #1f1f1f;
+	width: 100%;
+	margin: auto;
+	height: 400px;
+}
+
+.text {
+	width: 400px;
+	height: 330px;
+	margin-left: 380px;
+	padding-top: 70px;
+}
+
+.table{
+	width: 100%;
+	padding-top: 70px;
+}
+
+.wikiblock {
+	background-color: #1f1f1f;
+	width: 100%;
+	min-height: 400px;
+}
+
+.wikitext {
+	padding-top: 70px;
+	width: 500px;
+	margin-left: 380px;	
+	padding-bottom: 30px;
+}
+
+.wikinavi {	
+	float: left;
+	padding-top: 70px;
+	text-align:right;
+	height: 10px;
+	width: 200px;
+	margin: 20px 00px 0px 80px;
+}
+
+.navigation {
+	font-size: 16px;
+	margin: 10px 0px 0px 15px;
+	color: #666666;
+	margin-bottom: 70px;
+}
+
+
+p.wikitime {
+	font-size: 10px;
+	text-align:right;
+}
+
+p.articleinfo {
+	float:right;
+	font-size: 10px;
+	text-align:center;
+}
+
+.img {
+	font-size: 10px;
+	text-align:left;
+}
+
+a  {
+	text-decoration: none;
+	color: #6699FF;
+}
+
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration: none;}
+
+.grey  {
+	text-decoration: none;
+	color: grey;
+}
+
+.navigation {
+	text-decoration: none;
+	color: #666666;
+	font-weight: bold; 
+}
+
+.actual {
+	color: #ffad10;
+}
+
+img {
+	float:left;
+}
+
+.article {
+	margin: 20px 20px 20px 20px;
+	float:none;
+}
+
+.showarticle {
+	margin: 20px 20px 20px 20px;
+	float: right;
+}
+
+.group {
+	margin: 0px 4px 0px 0px;
+	opacity: 0.5;
+}
+
+.group:hover {
+	opacity: 1;
+}
+
+textarea {
+	width: 300px;
+	height: 150px;
+	resize: none; 
+}
+
+.title {
+	height: 20px;
+	resize: none; 
+}
+
+input.search {
+	height: 20px;
+	width: 150px;
+	resize: none; 
+}
+
+.login {
+	padding-top: 70px;
+	padding-left: 550px;
+	float:left;
+}
+
+.logout {
+	padding-top: 70px;
+	padding-right: 60px;
+	float:right;
+	
+}
+
+.loginbutton {
+	padding-top: 70px;
+	padding-right: 60px;
+	float:right;
+	
+}
+
+.register{
+	padding-top: 70px;
+	padding-right: 60px;
+	float:right;
+}

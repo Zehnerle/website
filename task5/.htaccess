@@ -1,0 +1,7 @@
+RewriteEngine On 
+
+RewriteRule ^wiki/(.+).php/?$ 			wiki/$1.php [NC,L] 
+RewriteRule ^wiki/articleimages/(.+)$ 	wiki/articleimages/$1 [NC,L] 
+RewriteRule ^wiki/(.+)/edit/?$ 			wiki/edit.php?title=$1 [NC,L]
+RewriteRule ^wiki/(.+)/delete/?$ 		wiki/edit.php?title=$1&delete=1 [NC,L]
+RewriteRule ^wiki/(.+)/?$ 				wiki/show.php?show=$1 [NC,L] 
