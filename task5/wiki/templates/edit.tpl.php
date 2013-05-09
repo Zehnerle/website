@@ -13,8 +13,8 @@
 		<font class='annotation'>* Link Format: [[articletitle]] >>> Title Format: ---title---</font>
 	</p>						
 		
-	<p>	Bild:  <br />
-		<?php echo $showImage; ?>	
+	<p>	Bild (*.png):<br />
+		<?php echo $showImage; ?> 		
 	</p>
 		
 	<p>

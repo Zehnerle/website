@@ -15,7 +15,7 @@
 	</p>		
 	
 	<p>		
-		Bild: <br />
+		Bild (*.png): <br />
 		<?php echo $showImage; ?>	
 	</p>
 		

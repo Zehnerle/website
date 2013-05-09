@@ -75,7 +75,7 @@ class Image {
 		$path = $this->imgfolder . $image;
 		if(is_file($path))
 			unlink($path);
-			
+
 		echo "Bild entfernt!";
 	}
 	
@@ -111,9 +111,15 @@ class Image {
 	}
 	
 	function displayImage($image, $alignment) {	
+	
+		$folder = $this->imgfolder;
+	
+		if(isset($_GET['title']))
+			$folder = dirname($_SERVER['PHP_SELF']) . "/" . $this->imgfolder;
+				
 				
 		return "
-			<img src='" . $this->imgfolder . $image . "' alt='" . $image . "' class='article' />
+			<img src='" . $folder . $image . "' alt='" . $image . "' class='article' />
 			<input type='hidden' name='image' value='". $image ."' />
 			<input type='hidden' name='alignment' value='". $alignment ."' />
 			<p class='img'>Angeh&auml;ngt: " . $image .
