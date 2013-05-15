@@ -10,6 +10,7 @@
 				Passwort:<br />
 				<input type="password" size="15" maxlength="50"
 				name="passwort" value=''><br />
+				<font class='annotation'>* min. 6 Zeichen</font><br /><br />
 
 				Passwort wiederholen:<br />
 				<input type="password" size="15" maxlength="50"
