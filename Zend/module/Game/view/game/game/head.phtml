@@ -1,0 +1,17 @@
+<?php
+	$title = 'Rock-paper-scissors-lizard-Spock';	
+	$this->headLink()->appendStylesheet($this->basePath("css/game.css"));
+	$this->headTitle($title);
+?>
+
+<h1>
+	<?php echo $this->escapeHtml($title); ?>
+</h1>
+
+<p class="navi">
+    <a href="<?php echo $this->url('game', array('action'=>'index'));?>">HOME</a>&nbsp;&nbsp;&nbsp; 
+	<a href="<?php echo $this->url('game', array('action'=>'new'));?>">NEW GAME</a>&nbsp;&nbsp;&nbsp;
+	<a href="<?php echo $this->url('game', array('action'=>'result'));?>">YOUR CLOSED GAMES</a>
+	<br/>
+	<strong><?php if(!empty($user)) echo "Current user session: $user";?></strong>
+</p>

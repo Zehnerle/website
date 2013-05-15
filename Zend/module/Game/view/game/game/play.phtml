@@ -1,0 +1,34 @@
+<?php
+	include('head.phtml');
+?>
+
+<h3>
+	<?php	
+		$result = ($game->winner == 'TIE') ? 			
+		"TIE!! No winner..." : "Winner of game $id is <strong>$game->winner</strong>!!";
+		echo $result;
+	?>
+</h3>
+
+<h4>
+	Game Details:
+</h4>
+
+<table class="table">
+
+	<tr>
+		<th>Player1</th>
+		<th>Player2</th>
+		<th>Choice1</th>
+		<th>Choice2</th>
+		<th>Winner</th>
+	</tr>
+	<tr>	
+		<td><?php echo $this->escapeHtml($game->player1);?></td>
+		<td><?php echo $this->escapeHtml($game->player2);?></td>
+		<td><?php echo $this->escapeHtml($game->choice1);?></td>
+		<td><?php echo $this->escapeHtml($game->choice2);?></td>
+		<td><?php echo $this->escapeHtml($game->winner);?></td>
+	</tr>
+	
+</table>

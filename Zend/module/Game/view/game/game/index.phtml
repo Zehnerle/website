@@ -1,0 +1,30 @@
+<?php	
+	include('head.phtml');
+?>
+
+<h3>
+	Open games
+</h3>
+
+<table class="table">
+
+	<tr>
+		<th>Player1</th>
+		<th>Player2</th>
+		<th>&nbsp;</th>
+	</tr>
+	
+	<?php foreach ($games as $game) : ?>
+		<tr>
+			<td><?php echo $this->escapeHtml($game->player1);?></td>
+			<td><?php echo $this->escapeHtml($game->player2);?></td>
+			<td>
+				<a href="<?php echo $this->url('game',
+					array('id' => $game->id, 'action'=>'player2'));?>">Play</a>				
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	
+</table>
+
+</p>
