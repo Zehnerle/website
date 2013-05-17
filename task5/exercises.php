@@ -1,4 +1,4 @@
-<?php include('wiki/templates/pageheader.tpl.php');?>
+<?php include('templates/pageheader.tpl.php');?>
 			
 				<div class="list">
 					<ul><b>Task 1</b>
@@ -37,7 +37,7 @@
 					<ul><b>Task 7</b>
 						<li>Rock-paper-scissors-lizard-Spock Extension</li>
 						<ul><li>ZF DB-Abstraktion &#10004;</li></ul>
-						<ul><li>/game -> public Ordner (kein public in URL sichtbar)</li></ul>
+						<ul><li>/game -> public Ordner (kein public in URL sichtbar) &#10004;</li></ul>
 						<ul><li>Email Versand, ZF, SMTP: smtp.uibk.ac.at</li></ul>
 						<ul><li>Revanche starten nach Spiel</li></ul>
 						<ul><li>Highscore Liste auf Startseite</li></ul>
@@ -50,4 +50,4 @@
 				</div>
 				
 				
-<?php include('wiki/templates/pagefooter.tpl.php');?>
+<?php include('templates/pagefooter.tpl.php');?>

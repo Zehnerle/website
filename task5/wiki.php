@@ -1,1 +1,1 @@
-<?header('location: wiki/wiki.php');?>
+<?php header('location: wiki/wiki.php');?>

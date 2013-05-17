@@ -1,5 +1,5 @@
 <?php 
-require_once("/var/www/task.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/task.php");
 $text = calcText();
 $folder = Task::$task;?>
 
@@ -25,7 +25,9 @@ $folder = Task::$task;?>
 
 <?php 
 function calcText(){
-	$actual = $scriptname=end(explode('/',$_SERVER['PHP_SELF']));
+
+	$exp = explode('/',$_SERVER['PHP_SELF']);
+	$actual = $scriptname=end($exp);
 	
 	switch ($actual) {
 		case "index.php":

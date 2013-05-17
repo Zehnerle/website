@@ -3,4 +3,8 @@
 </div>
 		</div>	
 	
-<?php include('pagefooter.tpl.php');?>
+<?php 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/task.php");
+$folder = Task::$task;
+include($_SERVER['DOCUMENT_ROOT']."/".$folder.'/templates/pagefooter.tpl.php');
+?>
