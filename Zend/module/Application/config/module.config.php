@@ -16,7 +16,7 @@ return array(
                     'route'    => '/',
                     'defaults' => array(
                        // 'controller' => 'Application\Controller\Index',
-			'controller' => 'Game\Controller\Game',
+						'controller' => 'Game\Controller\Game',
                         'action'     => 'index',
                     ),
                 ),

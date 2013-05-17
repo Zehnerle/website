@@ -1,0 +1,18 @@
+<?php
+	include(__DIR__ . '/../head.phtml');
+?>
+
+<h3>
+	Delete Game <?php echo $this->escapeHtml($this->id); ?>?
+</h3>
+
+<?php
+	$url = $this->url('game/delete', array('id' => $this->id));
+?>
+
+<form action="<?php echo $url; ?>" method="post">
+	<div>
+		<input type="submit" name="delete" value="Yes" />
+		<input type="submit" name="delete" value="No" />
+	</div>
+</form>

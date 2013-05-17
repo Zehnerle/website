@@ -5,12 +5,16 @@
 	use Zend\Db\TableGateway\TableGateway;
 	use Zend\Db\Sql\Where;
 
-	class GameTable{
+	class GameTable {
 	
 		protected $tableGateway;
 
 		public function __construct(TableGateway $tableGateway) {
 			$this->tableGateway = $tableGateway;
+		}
+		
+		public function getGateway() {
+			return $this->tableGateway;
 		}
 		
 		public function fetchOpenGames() {

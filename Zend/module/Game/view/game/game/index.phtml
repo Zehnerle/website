@@ -1,5 +1,5 @@
 <?php	
-	include('head.phtml');
+	include(__DIR__ . '/../head.phtml');
 ?>
 
 <h3>
@@ -19,12 +19,10 @@
 			<td><?php echo $this->escapeHtml($game->player1);?></td>
 			<td><?php echo $this->escapeHtml($game->player2);?></td>
 			<td>
-				<a href="<?php echo $this->url('game',
-					array('id' => $game->id, 'action'=>'player2'));?>">Play</a>				
+				<a href="<?php echo $this->url('game/player2',
+					array('id' => $game->id));?>">Play</a>				
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	
 </table>
-
-</p>

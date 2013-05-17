@@ -1,6 +1,10 @@
 <?php include('templates/pageheader.tpl.php');?>
 			
-				<div class="list">
+	<div class="exerciseblock">
+		<div class="wikitext">
+			<h1>Exercises</h1>
+			
+				<div class="exerciselist">
 					<ul><b>Task 1</b>
 						<li>Server aufsetzen und absichern &#10004;</li>
 						<li>Little-Boxes Kapitel I-IV lesen und verstehen &#10004;</li>
@@ -42,12 +46,14 @@
 						<ul><li>Revanche starten nach Spiel</li></ul>
 						<ul><li>Highscore Liste auf Startseite</li></ul>
 						<ul><li>Formular&uuml;berpr&uuml;fung mit JavaScript ohne JS-lib!</li></ul>
-						<ul><li>Usability: Erkl&auml;ungen, Waffen-Auswahl &uuml;ber Bilder, CSS/Design</li></ul>
-						<ul><li>Wiedererkennung per Cookie -> Vorausf&uuml;llen der eigenen Daten &#10004;</li></ul>
+						<ul><li>Usability: Erkl&auml;rungen, Waffen-Auswahl &uuml;ber Bilder, CSS/Design</li></ul>
+						<ul><li>Wiedererkennung per Cookie -> Vorausf&uuml;llen der Daten &#10004;</li></ul>
 						<ul><li>Testspiele: 10 Personen -> Feedback sammeln und dokumentieren</li></ul>
 					</ul>
 					
-				</div>
+			</div>
+		</div>
+	</div>
 				
 				
 <?php include('templates/pagefooter.tpl.php');?>

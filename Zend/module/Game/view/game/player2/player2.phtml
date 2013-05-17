@@ -1,0 +1,23 @@
+<?php
+	include(__DIR__ . '/../head.phtml');
+?>
+
+<h3>
+	Player 2: <?php echo $player2; ?>
+</h3>
+
+<h4>
+	Verify with your mail:
+</h4>
+
+<?php
+	
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('game/player2', array('id' => $id)));
+	$form->prepare();
+
+	echo $this->form()->openTag($form);
+	echo $this->formCollection($form);	
+	echo $this->form()->closeTag();
+	
+?>

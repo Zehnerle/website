@@ -1,0 +1,19 @@
+<?php
+	include(__DIR__ . '/../head.phtml');
+?>
+
+<h3>
+	New game
+</h3>
+
+<?php
+	
+	$form = $this->form;
+	$form->setAttribute('action', $this->url('game/new'));
+	$form->prepare();
+
+	echo $this->form()->openTag($form);
+	echo $this->formCollection($form);
+	echo $this->form()->closeTag();
+	
+?>
