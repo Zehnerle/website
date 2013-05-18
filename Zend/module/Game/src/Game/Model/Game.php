@@ -12,6 +12,7 @@
 		public $choice1;
 		public $choice2;
 		public $winner;
+		public $hash;
 		
 		public function exchangeArray($data) {
 		
@@ -23,6 +24,7 @@
 			$this->choice1 = (isset($data['choice1'])) ? $data['choice1'] : null;
 			$this->choice2 = (isset($data['choice2'])) ? $data['choice2'] : null;
 			$this->winner = (isset($data['winner'])) ? $data['winner'] : null;
+			$this->hash = (isset($data['hash'])) ? $data['hash'] : hash('sha256', $this->player1.$this->player2.time());
 			
 		}		
 		

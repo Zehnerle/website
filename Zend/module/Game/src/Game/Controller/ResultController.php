@@ -13,10 +13,19 @@
 		public function resultAction() {	
 
 			$user = $this->getSession();
-			$results = array('user' => $user);			
+			$results = array('user' => $user);
+
+			// if came in via mail notification
+			$hash = $this->params()->fromRoute('hash', 0);
+			if ($hash) {
+				$actual = array('actualgame' => $this->getGameTable()->getGameByHash($hash));
+				$results = $results + $actual;
+			}
 			
-			if(!empty($user))		{
+			// normal
+			else if(!empty($user))		{
 				$games = array(
+					'opengames' => $this->getGameTable()->fetchOpenGames($user),
 					'closedgames' => $this->getGameTable()->fetchClosedGames($user),
 				);				
 				$results = $results + $games;

@@ -42,9 +42,9 @@
 						<li>Rock-paper-scissors-lizard-Spock Extension</li>
 						<ul><li>ZF DB-Abstraktion &#10004;</li></ul>
 						<ul><li>/game -> public Ordner (kein public in URL sichtbar) &#10004;</li></ul>
-						<ul><li>Email Versand, ZF, SMTP: smtp.uibk.ac.at</li></ul>
+						<ul><li>Email Versand, ZF, SMTP: smtp.uibk.ac.at &#10004;</li></ul>
 						<ul><li>Revanche starten nach Spiel</li></ul>
-						<ul><li>Highscore Liste auf Startseite</li></ul>
+						<ul><li>Highscore Liste auf Startseite &#10004;</li></ul>
 						<ul><li>Formular&uuml;berpr&uuml;fung mit JavaScript ohne JS-lib!</li></ul>
 						<ul><li>Usability: Erkl&auml;rungen, Waffen-Auswahl &uuml;ber Bilder, CSS/Design</li></ul>
 						<ul><li>Wiedererkennung per Cookie -> Vorausf&uuml;llen der Daten &#10004;</li></ul>

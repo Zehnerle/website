@@ -15,21 +15,21 @@
 		public function deleteAction() {
 
 			$user = $this->getSession();
-			$id = $this->idCheck();
+			$hash = $this->hashCheck();
 
 			$request = $this->getRequest();			
 			if ($request->isPost()) {			
 				$delete = $request->getPost('delete', 'No');
 
 				if ($delete == 'Yes')				
-					$this->getGameTable()->deleteGame($id);
+					$this->getGameTable()->deleteGame($hash);
 					
 				return $this->redirect()
 						->toRoute('game/result');	
 			}
 
 			return array(
-				'id'    => $id,
+				'hash' => $hash,
 				'user' => $user
 			);			
 		}	
@@ -55,14 +55,14 @@
 		}
 		
 		
-		public function idCheck() {
+		public function hashCheck() {
 			
-			$id = (int) $this->params()->fromRoute('id', 0);			
-			if (!$id) {
+			$hash = $this->params()->fromRoute('hash', 0);			
+			if (!$hash) {
 				return $this->redirect()->toRoute('game');
 			}
 				
-			return $id;
+			return $hash;
 		}	
 		
 	}

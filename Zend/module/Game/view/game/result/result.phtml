@@ -2,33 +2,122 @@
 	include(__DIR__ . '/../head.phtml');
 ?>
 
-<h3>
-	Your closed games
-</h3>
 
-<table class="table">
+<?php 
 
-	<tr>
-		<th>Player1</th>
-		<th>Player2</th>
-		<th>Choice1</th>
-		<th>Choice2</th>
-		<th>Winner</th>
-		<th>&nbsp;</th>
-	</tr>
+	if(isset($actualgame))  
 	
-	<?php if(isset($closedgames)) foreach ($closedgames as $game) : ?>
-		<tr>
-			<td><?php echo $this->escapeHtml($game->player1);?></td>
-			<td><?php echo $this->escapeHtml($game->player2);?></td>
-			<td><?php echo $this->escapeHtml($game->choice1);?></td>
-			<td><?php echo $this->escapeHtml($game->choice2);?></td>
-			<td><?php echo $this->escapeHtml($game->winner);?></td>
-			<td>
-				<a href="<?php echo $this->url('game/delete',
-					array('id' => $game->id));?>">Delete</a>				
-			</td>
-		</tr>
-	<?php endforeach; ?>
+	echo "
 	
-</table>
+		<h3>
+			Actual game result
+		</h3>
+	
+		<table class='table'>
+
+			<tr>
+				<th>Player1</th>
+				<th>Player2</th>
+				<th>Choice1</th>
+				<th>Choice2</th>
+				<th>Winner</th>
+				<th>&nbsp;</th>
+			</tr>			
+
+			<tr>
+				<td>$actualgame->player1</td>
+				<td>$actualgame->player2</td>
+				<td>$actualgame->choice1</td>
+				<td>$actualgame->choice2</td>
+				<td>$actualgame->winner</td>
+				<td>
+					<a href='" 
+					. $this->url('game/delete', array('hash' => $actualgame->hash)) 
+					. "'>Delete</a>				
+				</td>
+			</tr>
+			
+		</table>"; 
+
+?>
+
+<?php 
+
+	if(isset($opengames)) {
+	
+		echo "	
+		<h3>
+			Open games
+		</h3>
+	
+		<table class='table'>
+
+			<tr>
+				<th>Player1</th>
+				<th>Player2</th>
+				<th>&nbsp;</th>
+			</tr>";
+			
+		foreach($opengames as $actualgame) {
+			echo "
+				<tr>
+					<td>$actualgame->player1</td>
+					<td>$actualgame->player2</td>
+					<td>";
+					
+					if(isset($user) && !strcmp($user, $actualgame->player2))
+						echo "<a href='" . $this->url('game/player2',
+						array('hash' => $actualgame->hash)) . "'>Play</a>";				
+			
+			echo "	</td>
+				</tr>";
+		}			
+		echo "</table>"; 
+	}
+
+?>
+
+
+<?php 
+
+	if(isset($closedgames)) {
+	
+		echo "	
+		<h3>
+			Closed games
+		</h3>
+	
+		<table class='table'>
+
+			<tr>
+				<th>Player1</th>
+				<th>Player2</th>
+				<th>Choice1</th>
+				<th>Choice2</th>
+				<th>Winner</th>
+				<th>&nbsp;</th>
+			</tr>";
+			
+		foreach($closedgames as $actualgame) {
+			echo "
+				<tr>
+					<td>$actualgame->player1</td>
+					<td>$actualgame->player2</td>
+					<td>$actualgame->choice1</td>
+					<td>$actualgame->choice2</td>
+					<td>$actualgame->winner</td>
+					<td>
+					
+					<a href='" 
+					. $this->url('game/delete', array('hash' => $actualgame->hash)) 
+					. "'>Delete</a>					
+			
+					</td>
+				</tr>";
+		}			
+		echo "</table>"; 
+	}
+
+?>
+			
+			

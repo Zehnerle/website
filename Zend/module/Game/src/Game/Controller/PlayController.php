@@ -14,8 +14,7 @@
 		
 		public function playAction() {
 		
-			$user = $this->getSession();		
-			$id = $this->idCheck();
+			$user = $this->getSession();	
 			
 			$game = $this->session->offsetGet('game');	
 			
@@ -24,11 +23,9 @@
 			$game->choice2 = $enum[$game->choice2];
 			
 			$game->getResult();
-			$this->getGameTable()->saveGame($game);
+			$this->getGameTable()->saveGame($game);					
 					
-					
-			return array(
-				'id'   => $id,				
+			return array(		
 				'user' => $user,
 				'game' => $game
 			);		
@@ -61,16 +58,6 @@
 			}
 			return $this->gameLogic;			
 		}
-
-		public function idCheck() {
-			
-			$id = (int) $this->params()->fromRoute('id', 0);			
-			if (!$id) {
-				return $this->redirect()->toRoute('game');
-			}
-				
-			return $id;
-		}		
 		
 	}
 

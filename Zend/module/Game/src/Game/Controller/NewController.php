@@ -5,11 +5,10 @@
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Game\Model\Game;
 	use Game\Model\GameFilter;
+	use Game\Model\Mail;
 	use Game\Form\GameForm;  
 	use Zend\Session\Container;	
 	use Zend\Mail\Message;
-	use Zend\Mail\Transport\Smtp as SmtpTransport;
-	use Zend\Mail\Transport\SmtpOptions;
 
 	class NewController extends AbstractActionController {
 
@@ -59,9 +58,9 @@
 				
 				$this->session->offsetSet('name', $game->player1);
 				$this->session->offsetSet('mail', $game->mail1);
-				$game->id = $this->tableGateway->lastInsertValue;
-
-				$this->sendMail($game);
+				
+				if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
+					$this->sendMail($game);
 				
 				return $this->redirect()->toRoute('game');
 			}
@@ -69,31 +68,17 @@
 		
 		public function sendMail($game) {					
 				
-			$link = "http://localhost/Zend/game/" . $game->id . "/player2";
-			$m = $game->mail1;
-			$mail = new Message();
-			$mail->setBody("Hi '$game->player2'!\n\nYou were challenged by player '$game->player1' in 'Rock-Paper-Scissors-Lizard-Spock'. If you accept the challenge, follow this link: " .
+			$link = "http://" . $_SERVER['HTTP_HOST'] . "/Zend/game/" . $game->hash . "/player2";
+			
+			$message = new Message();
+			$message->setBody("Hi '$game->player2'!\n\nYou were challenged by player '$game->player1' in 'Rock-Paper-Scissors-Lizard-Spock'. If you accept the challenge, follow this link: " .
 			$link . "\n\nHave a nice day!");
-			$mail->addFrom("$game->mail1");	
-			$mail->addTo("$game->mail2");
-			$mail->setSubject('You were challenged in Rock-Paper-Scissors-Lizard-Spock!');
+			$message->addFrom("$game->mail1");	
+			$message->addTo("$game->mail2");
+			$message->setSubject('You were challenged in Rock-Paper-Scissors-Lizard-Spock!');
 			
-			$transport = new SmtpTransport();
-			$options   = new SmtpOptions(array(
-				'host' => 'smtp.uibk.ac.at',
-				'name' => 'smtp.uibk.ac.at',
-				'connection_class'  => 'login',
-				'connection_config' => array(
-					'port' => 587,
-					'ssl' => 'tls',
-					'username' => '',	//username einfuegen
-					'password' => '',	//passwort einfuegen
-				),
-			));
-
-			$transport->setOptions($options);
-			$transport->send($mail);    
-			
+			$mail = new Mail();
+			$mail->sendMail($message);
 			
 		}
 

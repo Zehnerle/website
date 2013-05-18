@@ -3,11 +3,11 @@
 ?>
 
 <h3>
-	Delete Game <?php echo $this->escapeHtml($this->id); ?>?
+	Delete Game?
 </h3>
 
 <?php
-	$url = $this->url('game/delete', array('id' => $this->id));
+	$url = $this->url('game/delete', array('hash' => $this->hash));
 ?>
 
 <form action="<?php echo $url; ?>" method="post">

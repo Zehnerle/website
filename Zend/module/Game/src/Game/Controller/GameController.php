@@ -17,7 +17,7 @@
 		
 			return array(
 				'user' => $user,
-				'games' => $this->getGameTable()->fetchOpenGames(),
+				'highscore' => $this->getGameTable()->getHighscore(),
 			);
 		}
 		

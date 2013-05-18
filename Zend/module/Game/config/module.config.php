@@ -44,7 +44,10 @@
 						'player2' => array(
 							'type'    => 'segment',
 							'options' => array(
-								'route'    => '[/:id]/player2',
+								'route'    => '[/:hash]/player2',
+								'constraints' => array(
+									'hash' => '[a-zA-Z0-9_-]*',
+								),
 								'defaults' => array(
 									'controller' => 'Game\Controller\Player2',
 									'action'     => 'player2',
@@ -56,7 +59,10 @@
 						'play' => array(
 							'type'    => 'segment',
 							'options' => array(
-								'route'    => '[/:id]/play',
+								'route'    => '[/:hash]/play',
+								'constraints' => array(
+									'hash' => '[a-zA-Z0-9_-]*',
+								),
 								'defaults' => array(
 									'controller' => 'Game\Controller\Play',
 									'action'     => 'play',
@@ -67,9 +73,12 @@
 						
 					
 						'result' => array(
-							'type'    => 'literal',
+							'type'    => 'segment',
 							'options' => array(
-								'route'    => '/result',
+								'route'    => '[/:hash]/result',
+								'constraints' => array(
+									'hash' => '[a-zA-Z0-9_-]*',
+								),
 								'defaults' => array(
 									'controller' => 'Game\Controller\Result',
 									'action'     => 'result',
@@ -81,7 +90,10 @@
 						'delete' => array(
 							'type'    => 'segment',
 							'options' => array(
-								'route'    => '[/:id]/delete',
+								'route'    => '[/:hash]/delete',
+								'constraints' => array(
+									'hash' => '[a-zA-Z0-9_-]*',
+								),
 								'defaults' => array(
 									'controller' => 'Game\Controller\Delete',
 									'action'     => 'delete',

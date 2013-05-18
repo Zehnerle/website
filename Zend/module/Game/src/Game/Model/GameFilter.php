@@ -111,6 +111,10 @@
 					'name'     => 'choice1',
 					'required' => true,
 				)));
+				
+				$inputFilter->add($factory->createInput(array(
+					'name'     => 'mailcheckbox',
+				)));
 
 				$this->inputFilter = $inputFilter;
 			}

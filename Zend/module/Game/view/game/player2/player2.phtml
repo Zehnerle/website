@@ -13,7 +13,7 @@
 <?php
 	
 	$form = $this->form;
-	$form->setAttribute('action', $this->url('game/player2', array('id' => $id)));
+	$form->setAttribute('action', $this->url('game/player2', array('hash' => $hash)));
 	$form->prepare();
 
 	echo $this->form()->openTag($form);

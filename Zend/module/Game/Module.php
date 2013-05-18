@@ -34,7 +34,8 @@
 				'factories' => array(
 					'Game\Model\GameTable' =>  function($sm) {
 						$tableGateway = $sm->get('GameTableGateway');
-						$table = new GameTable($tableGateway);
+						$scoreGateway = $sm->get('ScoreTableGateway');
+						$table = new GameTable($tableGateway, $scoreGateway);
 						return $table;
 					},
 					'GameTableGateway' => function ($sm) {
@@ -42,6 +43,10 @@
 						$resultSetPrototype = new ResultSet();
 						$resultSetPrototype->setArrayObjectPrototype(new Game());
 						return new TableGateway('game', $dbAdapter, null, $resultSetPrototype);
+					},
+					'ScoreTableGateway' => function ($sm) {
+						$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+						return new TableGateway('game', $dbAdapter, null, null);
 					},
 				),
 			);

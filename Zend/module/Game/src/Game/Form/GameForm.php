@@ -74,6 +74,18 @@
 			));
 			
 			$this->add(array(
+				'name' => 'mailcheckbox',
+				'type' => 'Checkbox',
+				'options' => array(
+					'label' => 'Notify Player 2 by mail (only Uni Innsbruck mail addresses allowed)?',					
+					'use_hidden_element' => true,
+					'checked_value' => 'mail',
+					'unchecked_value' => 'nomail',
+				),			
+			));
+			
+			
+			$this->add(array(
 				'name' => 'submit',
 				'type' => 'Submit',
 				'attributes' => array(
