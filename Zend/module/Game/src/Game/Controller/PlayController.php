@@ -3,8 +3,10 @@
 	namespace Game\Controller;
 
 	use Game\Model\GameLogic;
+	use Game\Model\Mail;
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Zend\Session\Container;
+	use Zend\Mail\Message;
 
 	class PlayController extends AbstractActionController {
 	
@@ -23,7 +25,13 @@
 			$game->choice2 = $enum[$game->choice2];
 			
 			$game->getResult();
-			$this->getGameTable()->saveGame($game);					
+			$this->getGameTable()->saveGame($game);	
+			
+			if($this->session->offsetExists('sendmail'))
+				if(!strcmp($this->session->offsetGet('sendmail'), 'yes'))					
+					$this->sendMail($game);
+
+			$this->session->offsetSet('game', $game);		
 					
 			return array(		
 				'user' => $user,
@@ -31,6 +39,29 @@
 			);		
 		}
 
+		
+		public function sendMail($game) {					
+				
+			$link = "http://" . $_SERVER['HTTP_HOST'] . "/Zend/game/" . $game->hash . "/result";
+			
+			if($game->winner == 'TIE') 
+				$result = "TIE!! No winner...";
+			else if(!strcmp($game->player2, $game->winner)) 
+				$result = "You lost!";
+			else $result = "You won!";
+			
+			$message = new Message();
+			$message->setBody("Hi '$game->player1'!\n\n'$game->player2' accepted the challenge: $result See the result of the game on this link: " .
+			$link . "\n\nHave a nice day!");
+			$message->addFrom("$game->mail2");	
+			$message->addTo("$game->mail1");
+			$message->setSubject('Rock-Paper-Scissors-Lizard-Spock');
+			
+			$mail = new Mail();
+			$mail->sendMail($message);
+			
+		}
+		
 		
 		public function getGameTable() {
 		

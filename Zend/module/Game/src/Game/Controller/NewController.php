@@ -22,14 +22,24 @@
 			$form = new GameForm();
 			$game = new Game();		
 		
-			$user = $this->getSession();
+			$user = $this->getSession();				
 
 			if($this->session->offsetExists('name')) {
 				$game->player1 = $this->session->offsetGet('name');
 				$game->mail1 = $this->session->offsetGet('mail');
+				
+				$hash = $this->params()->fromRoute('hash', 0);	//Revanche
+				if ($hash && $this->session->offsetExists('game'))
+					$oldgame = $this->session->offsetGet('game');
+				
+				$game->player2 = (isset($oldgame)) ? $oldgame->player1 : "";
+				$game->mail2 = (isset($oldgame))? $oldgame->mail1 : "";
+				
 				$array = array(
 					'player1' => $game->player1,
 					'mail1' => $game->mail1,
+					'player2' => $game->player2,
+					'mail2' => $game->mail2,
 				);
 				$form->setData($array);
 			}

@@ -30,9 +30,9 @@
 					'child_routes' => array(
 						
 						'new' => array(
-							'type'    => 'literal',
+							'type'    => 'segment',
 							'options' => array(
-								'route'    => '/new',
+								'route'    => '[/:hash]/new',
 								'defaults' => array(
 									'controller' => 'Game\Controller\New',
 									'action'     => 'new',

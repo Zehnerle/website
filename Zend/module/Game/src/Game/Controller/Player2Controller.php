@@ -5,9 +5,8 @@
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Game\Model\Player2Filter;
 	use Game\Form\Player2Form; 
-	use Game\Model\Mail;
 	use Zend\Session\Container;	
-	use Zend\Mail\Message;
+
 
 	class Player2Controller extends AbstractActionController {
 
@@ -38,7 +37,7 @@
 						$this->session->offsetSet('game', $game);
 						
 						if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
-							$this->sendMail($game);
+							$this->session->offsetSet('sendmail', 'yes');		
 						
 						return $this->redirect()
 						->toRoute('game/play', array('hash' => $hash));
@@ -57,23 +56,6 @@
 		
 		}
 		
-		
-		public function sendMail($game) {					
-				
-			$link = "http://" . $_SERVER['HTTP_HOST'] . "/Zend/game/" . $game->hash . "/result";
-			
-			$message = new Message();
-			$message->setBody("Hi '$game->player1'!\n\n'$game->player2' accepted the challenge. See the result of the game on this link: " .
-			$link . "\n\nHave a nice day!");
-			$message->addFrom("$game->mail2");	
-			$message->addTo("$game->mail1");
-			$message->setSubject('Rock-Paper-Scissors-Lizard-Spock');
-			
-			$mail = new Mail();
-			$mail->sendMail($message);
-			
-		}
-
 		
 		public function getGameTable() {
 		

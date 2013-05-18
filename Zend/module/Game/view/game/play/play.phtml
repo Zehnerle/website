@@ -4,8 +4,13 @@
 
 <h3>
 	<?php	
-		$result = ($game->winner == 'TIE') ? 			
-		"TIE!! No winner..." : "Winner of this game is <strong>$game->winner</strong>!!";
+		if($game->winner == 'TIE') 
+			$result = "TIE!! No winner...";
+		else if(!strcmp($game->player1, $game->winner)) 
+			$result = "You lost! <a href='" 
+				. $this->url('game/new', array('hash' => $game->hash)) 
+				. "'>Start revanche?</a>";
+		else $result = "You won!";
 		echo $result;
 	?>
 </h3>
