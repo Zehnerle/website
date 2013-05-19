@@ -71,15 +71,13 @@
 			$sql = new Sql($this->scoreGateway->getAdapter());
 			
 			$select = new Select();
-			$count = new Expression("COUNT(DISTINCT player1)");
+			$count = new Expression("COUNT(*)");
 			
 			$select->from('game')
 				->columns(array('winner', 'num' => $count))
 				->group('winner')
 				->order("num DESC, winner ASC")->limit(10)
 				->where("winner IS NOT NULL AND winner NOT LIKE 'TIE'");
-				
-		//	echo $select->getSqlString(); 
 
 			$resultSet = $this->scoreGateway->selectWith($select);
 			return $resultSet;			

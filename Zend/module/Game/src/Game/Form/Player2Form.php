@@ -47,6 +47,7 @@
 				)
 			));
 			
+			
 			$this->add(array(
 				'name' => 'mailcheckbox',
 				'type' => 'Checkbox',
@@ -55,7 +56,10 @@
 					'use_hidden_element' => true,
 					'checked_value' => 'mail',
 					'unchecked_value' => 'nomail',
-				),			
+				),	
+				'attributes' => array(
+					'class' => 'inline',
+				),				
 			));
 			
 			$this->add(array(

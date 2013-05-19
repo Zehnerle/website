@@ -20,7 +20,7 @@
 		public function newAction() {
 		
 			$form = new GameForm();
-			$game = new Game();		
+			$game = new Game();	
 		
 			$user = $this->getSession();				
 
