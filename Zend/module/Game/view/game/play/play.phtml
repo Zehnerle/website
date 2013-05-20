@@ -6,11 +6,14 @@
 	<?php	
 		if($game->winner == 'TIE') 
 			$result = "TIE!! No winner...";
-		else if(!strcmp($game->player1, $game->winner)) 
+		else if((!strcmp($game->player1, $game->player2)) || 
+					strcmp($game->player1, $game->winner))
+			$result = "You won!";
+		else
 			$result = "You lost! <a href='" 
 				. $this->url('game/new', array('hash' => $game->hash)) 
 				. "'>Start revanche?</a>";
-		else $result = "You won!";
+
 		echo $result;
 	?>
 </h3>

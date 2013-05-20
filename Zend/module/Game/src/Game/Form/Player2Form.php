@@ -52,7 +52,7 @@
 				'name' => 'mailcheckbox',
 				'type' => 'Checkbox',
 				'options' => array(
-					'label' => 'Send result also to Player 1 by mail (only Uni Innsbruck mail addresses allowed)?',					
+					'label' => 'Send result also to Player 1 by mail?',					
 					'use_hidden_element' => true,
 					'checked_value' => 'mail',
 					'unchecked_value' => 'nomail',

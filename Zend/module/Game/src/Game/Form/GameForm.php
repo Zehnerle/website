@@ -77,7 +77,7 @@
 				'name' => 'mailcheckbox',
 				'type' => 'Checkbox',
 				'options' => array(
-					'label' => 'Notify Player 2 by mail (only Uni Innsbruck mail addresses allowed)?',				
+					'label' => 'Notify Player 2 by mail?',				
 					'use_hidden_element' => true,
 					'checked_value' => 'mail',
 					'unchecked_value' => 'nomail',

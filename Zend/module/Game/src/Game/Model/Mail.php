@@ -15,9 +15,10 @@
 			$options   = new SmtpOptions(array(
 				'host' => 'smtp.uibk.ac.at',
 				'name' => 'smtp.uibk.ac.at',
+				'port' => 25,
 				'connection_class'  => 'login',
 				'connection_config' => array(
-					'port' => 587,
+					//'port' => 587,
 					'ssl' => 'tls',
 					'username' => '',	//username einfuegen
 					'password' => '',	//passwort einfuegen

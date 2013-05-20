@@ -46,14 +46,15 @@
 			
 			if($game->winner == 'TIE') 
 				$result = "TIE!! No winner...";
-			else if(!strcmp($game->player2, $game->winner)) 
-				$result = "You lost!";
-			else $result = "You won!";
+			else if(!strcmp($game->player2, $game->player1) || 
+					!strcmp($game->player1, $game->winner)) 
+				$result = "You won!";
+			else $result = "You lost!";
 			
 			$message = new Message();
 			$message->setBody("Hi '$game->player1'!\n\n'$game->player2' accepted the challenge: $result See the result of the game on this link: " .
 			$link . "\n\nHave a nice day!");
-			$message->addFrom("$game->mail2");	
+			$message->addFrom("csae7189@uibk.ac.at");	
 			$message->addTo("$game->mail1");
 			$message->setSubject('Rock-Paper-Scissors-Lizard-Spock');
 			
