@@ -1,3 +1,100 @@
+body { 
+	background-color: #1f1f1f; 
+	font-family: verdana, sans-serif;
+	font-size: 17px;
+	color: #c6c6c6;
+	margin: 100px 0px 0px 0px;
+}
+
+h1 {
+	color: #ffad10;
+	font-size: 40px;
+	margin: 0px;
+}
+
+.scissors {
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -30px;
+	width: 150px;
+	height: 150px;
+}
+
+.scissors:hover {
+	border-style:inset;
+	border-color:#ffad10;
+}
+
+.spock {
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	margin-left: 20%;
+	margin-right: auto; 
+	float:left;
+	width: 150px;
+	height: 150px;
+}
+
+.spock:hover {
+	border-style:inset;
+	border-color:#ffad10;
+}
+
+.paper {
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	margin-left: auto;
+	margin-right: 20%; 
+	margin-bottom: 25px;
+	width: 150px;
+	height: 150px;
+}
+
+.paper:hover {
+	border-style:inset;
+	border-color:#ffad10;
+}
+.lizard {
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	margin-left: 32%;
+	margin-right: auto;
+	float:left;
+	width: 150px;
+	height: 150px;
+}
+
+.lizard:hover {
+	border-style:inset;
+	border-color:#ffad10;
+}
+
+.rock {
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	margin-left: auto;
+	margin-right: 32%; 
+	width: 150px;
+	height: 150px; 
+}
+
+.rock:hover {
+	border-style:inset;
+	border-color:#ffad10;
+}
+
 input[type=text] {	
 	margin-left: 20px;
 }

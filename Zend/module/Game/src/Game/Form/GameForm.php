@@ -74,6 +74,101 @@
 			));
 			
 			$this->add(array(
+				'name' => 'scissors',
+				'type' => 'Image',
+				'attributes' => array(
+					'class'  => 'scissors',
+					'type'  => 'Image',
+					'src'   => '../../public/img/game/Scissors.png',
+					'height'=> '200',
+					'width' => '200',
+					'border'=> '10',
+					'alt'   => 'Scissors',
+				),
+				'options' => array(
+					'value_options' => array(
+						'1' => $choiceEnum[0],
+					),
+				),
+			));
+			
+			$this->add(array(
+				'name' => 'spock',
+				'type' => 'Image',
+				'attributes' => array(
+					'class'  => 'spock',
+					'type'  => 'image',
+					'src'   => '../../public/img/game/Spock.png',
+					'height'=> '200',
+					'width' => '200',
+					'border'=> '10',
+					'alt'   => 'Spock',
+				),
+				'options' => array(
+					'value_options' => array(
+						'2' => $choiceEnum[1],
+					),
+				),
+			));
+			
+			$this->add(array(
+				'name' => 'paper',
+				'type' => 'Image',
+				'attributes' => array(
+					'class'  => 'paper',
+					'type'  => 'image',
+					'src'   => '../../public/img/game/Paper.png',
+					'height'=> '200',
+					'width' => '200',
+					'border'=> '10',
+					'alt'   => 'Paper',
+				),
+				'options' => array(
+					'value_options' => array(
+						'3' => $choiceEnum[2],
+					),
+				),
+			));
+			
+			$this->add(array(
+				'name' => 'lizard',
+				'type' => 'Image',
+				'attributes' => array(
+					'class'  => 'lizard',
+					'type'  => 'image',
+					'src'   => '../../public/img/game/Lizard.png',
+					'height'=> '200',
+					'width' => '200',
+					'border'=> '10',
+					'alt'   => 'Lizard',
+				),
+				'options' => array(
+					'value_options' => array(
+						'4' => $choiceEnum[3],
+					),
+				),
+			));
+			
+			$this->add(array(
+				'name' => 'rock',
+				'type' => 'Image',
+				'attributes' => array(
+					'class'  => 'rock',
+					'type'  => 'image',
+					'src'   => '../../public/img/game/Rock.png',
+					'height'=> '200',
+					'width' => '200',
+					'border'=> '10',
+					'alt'   => 'Rock',
+				),
+				'options' => array(
+					'value_options' => array(
+						'5' => $choiceEnum[4],
+					),
+				),
+			));
+			
+			$this->add(array(
 				'name' => 'mailcheckbox',
 				'type' => 'Checkbox',
 				'options' => array(
