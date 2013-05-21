@@ -83,6 +83,7 @@
 				return $this->session->offsetGet('name');			
 		}	
 		
+		
 		public function getGameLogic() {
 		
 			if (!$this->gameLogic) {

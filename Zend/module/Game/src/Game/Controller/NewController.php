@@ -62,14 +62,15 @@
 			$form->setData($request->getPost());
 
 			if ($form->isValid()) {
-				$game->exchangeArray($form->getData());
+				$data = $form->getData();
+				$game->exchangeArray($data);
 				
 				$this->getGameTable()->saveGame($game);
 				
 				$this->session->offsetSet('name', $game->player1);
 				$this->session->offsetSet('mail', $game->mail1);
 				
-				if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
+				if(!strcmp($data['mailcheckbox'], 'mail'))
 					$this->sendMail($game);
 				
 				return $this->redirect()->toRoute('game');
@@ -83,7 +84,7 @@
 			$message = new Message();
 			$message->setBody("Hi '$game->player2'!\n\nYou were challenged by player '$game->player1' in 'Rock-Paper-Scissors-Lizard-Spock'. If you accept the challenge, follow this link: " .
 			$link . "\n\nHave a nice day!");
-			$message->addFrom("$game->mail1");	
+			$message->addFrom("csae7189@uibk.ac.at");	
 			$message->addTo("$game->mail2");
 			$message->setSubject('You were challenged in Rock-Paper-Scissors-Lizard-Spock!');
 			

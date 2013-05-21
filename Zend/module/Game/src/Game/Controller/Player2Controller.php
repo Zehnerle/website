@@ -7,7 +7,6 @@
 	use Game\Form\Player2Form; 
 	use Zend\Session\Container;	
 
-
 	class Player2Controller extends AbstractActionController {
 
 		protected $gameTable;
@@ -36,7 +35,7 @@
 						$this->session->offsetSet('mail', $game->mail2);
 						$this->session->offsetSet('game', $game);
 						
-						if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
+						if(!strcmp($data['mailcheckbox'], 'mail'))
 							$this->session->offsetSet('sendmail', 'yes');		
 						
 						return $this->redirect()
