@@ -71,16 +71,10 @@ div
 	padding-top: 70px;
 }
 
-.exerciseblock {
-	background-color: #1f1f1f;
-	width: 100%;
-	min-height: 400px;
-}
-
-.exerciselist{
+.list{
 	font-size: small;
 	padding-top: 30px;
-	padding-left: 0px;
+	padding-left: 70px;
 }
 
 .wikiblock {

@@ -1,4 +1,4 @@
-﻿<?php include('templates/pageheader.tpl.php');?>
+﻿<?php include('wiki/templates/pageheader.tpl.php');?>
 		
 
 		<div class="block">
@@ -17,4 +17,4 @@
 
 		</div>
 	
-<?php include('templates/pagefooter.tpl.php');?>
+<?php include('wiki/templates/pagefooter.tpl.php');?>

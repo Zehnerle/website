@@ -1,8 +1,4 @@
-<?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/task.php");
-$folder = Task::$task;
-include($_SERVER['DOCUMENT_ROOT']."/".$folder.'/templates/pageheader.tpl.php');
-?>
+<?php include('pageheader.tpl.php');?>
 		
 		<div class="wikiblock">	
 			<div class="wikinavi">	
