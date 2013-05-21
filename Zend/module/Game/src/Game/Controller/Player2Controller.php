@@ -29,21 +29,22 @@
 				$form->setData($request->getPost());
 				
 				if ($form->isValid()) {
-					$data = $form->getData();
-					if($data['mail2'] == $game->mail2) {
-						$game->choice2 = $data['choice2'];
-						$this->session->offsetSet('name', $game->player2);
-						$this->session->offsetSet('mail', $game->mail2);
-						$this->session->offsetSet('game', $game);
-						
-						if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
-							$this->session->offsetSet('sendmail', 'yes');		
-						
-						return $this->redirect()
-						->toRoute('game/play', array('hash' => $hash));
-					}
-					else
+                    $data = $form->getData();
+                    if($data['mail2'] == $game->mail2) {
+                        $game->choice2 = $data['choice2'];
+                        $this->session->offsetSet('name', $game->player2);
+                        $this->session->offsetSet('mail', $game->mail2);
+                        $this->session->offsetSet('game', $game);
+
+                        if(!strcmp($data['mailcheckbox'], 'mail'))
+							$this->session->offsetSet('sendmail', 'yes');
+
+                        return $this->redirect()
+                        ->toRoute('game/play', array('hash' => $hash));
+                    }
+                    else
 						$form->get('mail2')->setMessages(array('Wrong mail address!'));
+                }form->get('mail2')->setMessages(array('Wrong mail address!'));
 				}
 			}
 			

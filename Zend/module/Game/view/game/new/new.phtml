@@ -6,14 +6,60 @@
 	New game
 </h3>
 
+<script type="text/javascript">
+
+function submitCheck(){
+	var valid = true;
+	var form = document.forms[0];
+	
+	if(forms.player1.value.length === 0){
+		alert("Player 1 is empty!");
+		valid = false
+	}
+	if(forms.mail1.value.length === 0){
+		alert("Mail1 is empty!");
+		valid = false
+	}
+	
+	if(forms.player2.value.length === 0){
+		alert("Player 2 is empty!");
+		valid = false
+	}
+	
+	if(forms.mail2.value.length === 0){
+		alert("Mail2 is empty!");
+		valid = false
+	}
+	
+	return valid;
+}
+
+</script>
+
 <?php
+
 	
 	$form = $this->form;
 	$form->setAttribute('action', $this->url('game/new'));
 	$form->prepare();
 
 	echo $this->form()->openTag($form);
-	echo $this->formCollection($form);
+	//echo $this->formCollection($form);
+	
+	echo $this->formHidden($form->get('id'));
+	echo $this->formRow($form->get('player1'));
+	echo $this->formRow($form->get('mail1'));
+	echo $this->formRow($form->get('player2'));
+	echo $this->formRow($form->get('mail2'));
+	echo $this->formRow($form->get('choice1'));
+	echo $this->formRow($form->get('scissors'));
+	echo $this->formRow($form->get('spock'));
+	echo $this->formRow($form->get('paper'));
+	echo $this->formRow($form->get('lizard'));
+	echo $this->formRow($form->get('rock'));
+	echo $this->formSubmit($form->get('submit'));
 	echo $this->form()->closeTag();
 	
 ?>
+
+	

@@ -69,8 +69,8 @@
 				$this->session->offsetSet('name', $game->player1);
 				$this->session->offsetSet('mail', $game->mail1);
 				
-				if(!strcmp($form->getData()['mailcheckbox'], 'mail'))
-					$this->sendMail($game);
+				if(!strcmp($data['mailcheckbox'], 'mail'))
+                    $this->sendMail($game);
 				
 				return $this->redirect()->toRoute('game');
 			}

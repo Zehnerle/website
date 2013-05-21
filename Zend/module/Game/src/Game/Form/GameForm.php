@@ -4,6 +4,7 @@
 
 	use Zend\Form\Form;
 	use Game\Model\GameLogic;
+	use Zend\Form\Element;
 
 	class GameForm extends Form {
 	
@@ -15,6 +16,7 @@
 			$choiceEnum = $choices->getEnum();
 			
 			$this->setAttribute('method', 'post');
+			$this->setAttribute('New Game' , 'return submitCheck()');
 
 			$this->add(array(
 				'name' => 'id',
@@ -79,7 +81,7 @@
 				'attributes' => array(
 					'class'  => 'scissors',
 					'type'  => 'Image',
-					'src'   => '../../public/img/game/Scissors.png',
+					'src'   => 'http://localhost/Zend/public/img/game/Scissors.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
@@ -98,7 +100,7 @@
 				'attributes' => array(
 					'class'  => 'spock',
 					'type'  => 'image',
-					'src'   => '../../public/img/game/Spock.png',
+					'src'   => 'http://localhost/Zend/public/img/game/Spock.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
@@ -117,7 +119,7 @@
 				'attributes' => array(
 					'class'  => 'paper',
 					'type'  => 'image',
-					'src'   => '../../public/img/game/Paper.png',
+					'src'   => 'http://localhost/Zend/public/img/game/Paper.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
@@ -136,7 +138,7 @@
 				'attributes' => array(
 					'class'  => 'lizard',
 					'type'  => 'image',
-					'src'   => '../../public/img/game/Lizard.png',
+					'src'   => 'http://localhost/Zend/public/img/game/Lizard.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
@@ -155,7 +157,7 @@
 				'attributes' => array(
 					'class'  => 'rock',
 					'type'  => 'image',
-					'src'   => '../../public/img/game/Rock.png',
+					'src'   => 'http://localhost/Zend/public/img/game/Rock.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
