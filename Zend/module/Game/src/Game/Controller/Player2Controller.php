@@ -23,13 +23,18 @@
 			$form = new Player2Form();
 			
 			$request = $this->getRequest();
-			if ($request->isPost()) {
+			if ($request->isPost()) {	
+			
+				/*//not needed anymore because of JS
 				$filter = new Player2Filter();
-				$form->setInputFilter($filter->getInputFilter());
+				$form->setInputFilter($filter->getInputFilter());*/
+				
 				$form->setData($request->getPost());
 				
 				if ($form->isValid()) {
+					
 					$data = $form->getData();
+					
 					if($data['mail2'] == $game->mail2) {
 						$game->choice2 = $data['choice2'];
 						$this->session->offsetSet('name', $game->player2);
@@ -37,7 +42,9 @@
 						$this->session->offsetSet('game', $game);
 						
 						if(!strcmp($data['mailcheckbox'], 'mail'))
-							$this->session->offsetSet('sendmail', 'yes');		
+							$this->session->offsetSet('sendmail', 'yes');	
+						else 				
+							$this->session->offsetSet('sendmail', 'no');
 						
 						return $this->redirect()
 						->toRoute('game/play', array('hash' => $hash));

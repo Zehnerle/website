@@ -1,4 +1,4 @@
-<?php include('wiki/templates/pageheader.tpl.php');?>
+<?php include('templates/pageheader.tpl.php');?>
 			
 				<div class="list">
 					<ul><b>Task 1</b>
@@ -50,4 +50,4 @@
 				</div>
 				
 				
-<?php include('wiki/templates/pagefooter.tpl.php');?>
+<?php include('templates/pagefooter.tpl.php');?>

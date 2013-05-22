@@ -57,20 +57,25 @@
 		
 		public function handleForm($form, $game, $request) {
 		
+			/*//not needed anymore because of JS
 			$filter = new GameFilter();
-			$form->setInputFilter($filter->getInputFilter());
+			$form->setInputFilter($filter->getInputFilter());*/
+			
 			$form->setData($request->getPost());
-
+			
 			if ($form->isValid()) {
-				$game->exchangeArray($form->getData());
+				$data = $form->getData();
+				$game->exchangeArray($data);
 				
 				$this->getGameTable()->saveGame($game);
 				
 				$this->session->offsetSet('name', $game->player1);
 				$this->session->offsetSet('mail', $game->mail1);
 				
-				if(!strcmp($data['mailcheckbox'], 'mail'))
+				if(!strcmp($data['mailcheckbox'], 'mail')) {
                     $this->sendMail($game);
+					
+				}
 				
 				return $this->redirect()->toRoute('game');
 			}

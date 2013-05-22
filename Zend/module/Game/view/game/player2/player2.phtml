@@ -1,5 +1,6 @@
 <?php
 	include(__DIR__ . '/../head.phtml');
+	$this->headScript()->prependFile($this->basePath('public/js/player2game.js'));
 ?>
 
 <h3>
@@ -17,7 +18,32 @@
 	$form->prepare();
 
 	echo $this->form()->openTag($form);
-	echo $this->formCollection($form);	
+
+	echo $this->formHidden($form->get('id'));
+	echo $this->formRow($form->get('mail2'));
+	
+	echo "<h4>Your choice:</h4>";
+	
+	$path = $this->basePath('public/img/game');
+	
+?>
+
+<div id="weapons"></div>
+<div class="control-group">
+	<div class="btn-group" data-toggle="buttons-radio">
+		<img src="<?php echo "$path/Rock.png"; ?>" class="btn btn-primary" id="1" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Paper.png"; ?>" class="btn btn-primary" id="2" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Scissors.png"; ?>" class="btn btn-primary" id="3" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Spock.png"; ?>" class="btn btn-primary" id="4" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Lizard.png"; ?>" class="btn btn-primary" id="5" onClick="reply_click(this.id)">
+	</div>
+</div>
+
+	
+<?php
+	echo $this->formHidden($form->get('choice2'));
+	echo $this->formRow($form->get('mailcheckbox'));
+	echo $this->formSubmit($form->get('submit'));
 	echo $this->form()->closeTag();
 	
 ?>

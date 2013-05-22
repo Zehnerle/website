@@ -1,4 +1,4 @@
-<? class Task {
+<?php class Task {
 	//change actual task here!
 	public static $task = "task5";
 }

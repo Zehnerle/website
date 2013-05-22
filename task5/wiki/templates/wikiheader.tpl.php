@@ -1,4 +1,4 @@
-<?php include('pageheader.tpl.php');?>
+<?php include('../templates/pageheader.tpl.php');?>
 		
 		<div class="wikiblock">	
 			<div class="wikinavi">	

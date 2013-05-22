@@ -4,6 +4,10 @@
 
 <?php 
 
+	if(!isset($actualgame) && !isset($opengames) && !isset($closedgames))
+		echo "<strong>You can see your game overview only when you have a session started.<br />
+		For this, create a new game or login after you have been challenged by someone else!</strong>";
+
 	if(isset($actualgame))  
 	
 	echo "

@@ -1,100 +1,49 @@
 <?php
-	include(__DIR__ . '/../head.phtml');
+	include(__DIR__ . '/../head.phtml');	
+	$this->headScript()->prependFile($this->basePath('public/js/newgame.js'));
 ?>
 
 <h3>
 	New game
 </h3>
 
-<script type="text/javascript">
-
-function onclick(id){
-	var choice=document.forms[0].choice1;
-	choice.value=id;
-	alert("TEST!");
-	document.forms[0].scissors.style.border ="solid red 10px";
-}
-
-function submitCheck(){
-	
-	var form = document.forms[0];
-	if(form.player1.value.length===0){
-		alert("Player 1 is empty!");
-		return false;
-	}
-	if(form.mail1.value.length===0){
-		alert("Mail 1 is empty!");
-		return false;
-	}
-	if(!checkMail(form.mail1.value)){
-		alert("Mail 1: Wrong Format!");
-		return false;
-	}
-	if(form.player2.value.length===0){
-		alert("Player 2 is empty!");
-		return false;
-	}
-	if(form.mail2.value.length===0){
-		alert("Mail 2 is empty!");
-		return false;
-	}
-	if(!checkMail(form.mail2.value)){
-		alert("Mail 2: Wrong Format!");
-		return false;
-	}
-	if(form.choice1.value==='' || form.choice1.value === null || form.choice1.value === undefined){
-		alert("Choose your Weapon!");
-		return false;
-	}
-	
-	return true;
-}
-
-function checkMail(email){
-	var strReg = "^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$";
-	var regex = new RegExp(strReg);
-	return(regex.test(email)); 
-}
-</script>
-
 <?php
-
 	
 	$form = $this->form;
 	$form->setAttribute('action', $this->url('game/new'));
 	$form->prepare();
-	$helper = new Zend\Form\View\Helper\FormImage();
-
 
 	echo $this->form()->openTag($form);
-	//echo $this->formCollection($form);
+	
+	echo "<h4>Player info:</h4>";
 	
 	echo $this->formHidden($form->get('id'));
 	echo $this->formRow($form->get('player1'));
 	echo $this->formRow($form->get('mail1'));
 	echo $this->formRow($form->get('player2'));
 	echo $this->formRow($form->get('mail2'));
-	echo $this->formRow($form->get('choice1'));
 	
-	//echo $helper($form->get('scissors'));
-	//echo $helper($form->get('spock'));
-	//echo $helper($form->get('paper'));
-	//echo $helper($form->get('lizard'));
-	//echo $helper($form->get('rock'));
+	echo "<h4>Your choice:</h4>";
 	
-	?>
+	$path = $this->basePath('public/img/game');
 	
-	<!--<div class="buttons" data-toggle="buttons-radio">
-		<img src="http://localhost/Zend/public/img/game/Scissors.png" class="scissors" name="Scissors" id="1" onClick="onclick(this.id)">
-		<img src="http://localhost/Zend/public/img/game/Spock.png" class="spock" name="Spock" id="2" onClick="onclick(this.id)">
-		<img src="http://localhost/Zend/public/img/game/Paper.png" class="paper" name="Paper" id="3" onClick="onclick(this.id)">
-		<img src="http://localhost/Zend/public/img/game/Lizard.png" class="lizard" name="Lizard" id="4" onClick="onclick(this.id)">
-		<img src="http://localhost/Zend/public/img/game/Rock.png" class="rock" name="Rock" id="5" onClick="onclick(this.id)">
+?>
+
+<div id="weapons"></div>
+<div class="control-group">
+	<div class="btn-group" data-toggle="buttons-radio">
+		<img src="<?php echo "$path/Rock.png"; ?>" class="btn btn-primary" id="1" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Paper.png"; ?>" class="btn btn-primary" id="2" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Scissors.png"; ?>" class="btn btn-primary" id="3" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Spock.png"; ?>" class="btn btn-primary" id="4" onClick="reply_click(this.id)">
+		<img src="<?php echo "$path/Lizard.png"; ?>" class="btn btn-primary" id="5" onClick="reply_click(this.id)">
 	</div>
-	-->
+</div>
+
 	
-	<?php
+<?php
+	echo $this->formHidden($form->get('choice1'));
 	echo $this->formRow($form->get('mailcheckbox'));
 	echo $this->formSubmit($form->get('submit'));
 	echo $this->form()->closeTag();
-	?>
+?>

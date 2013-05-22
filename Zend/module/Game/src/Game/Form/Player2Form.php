@@ -15,6 +15,7 @@
 			$choiceEnum = $choices->getEnum();
 			
 			$this->setAttribute('method', 'post');
+			$this->setAttribute('onsubmit' , 'return submitCheck()');
 			
 			$this->add(array(
 				'name' => 'id',

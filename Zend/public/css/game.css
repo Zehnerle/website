@@ -1,90 +1,21 @@
 body { 
 	background-color: #1f1f1f; 
 	font-family: verdana, sans-serif;
-	font-size: 17px;
+	font-size: 15px;
 	color: #c6c6c6;
-	margin: 100px 0px 0px 0px;
+	margin: 60px 0px 0px 0px;
 }
 
 h1 {
 	color: #ffad10;
-	font-size: 40px;
+	font-size: 35px;
 	margin: 0px;
 }
 
-.scissors:hover, .spock:hover, .paper:hover, .lizard:hover, .rock:hover{
-	border-style:inset;
-	border-color:#ffad10;
-	background-color: #F2931A;
-}
-
-.scissors {
-	display: inline-block;
-	border-style:outset;
-	border-width:5px;
-	border-color:#1f1f1f;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: -30px;
+img.btn {
 	width: 150px;
-	height: 150px;
-	cursor: pointer;
-}
-
-.spock {
-	display: inline-block;
-	border-style:outset;
-	border-width:5px;
-	border-color:#1f1f1f;
-	display: block;
-	margin-left: 20%;
-	margin-right: auto; 
-	float:left;
-	width: 150px;
-	height: 150px;
-	cursor: pointer;
-}
-
-.paper {
-	display: inline-block;
-	border-style:outset;
-	border-width:5px;
-	border-color:#1f1f1f;
-	display: block;
-	margin-left: auto;
-	margin-right: 20%; 
-	margin-bottom: 25px;
-	width: 150px;
-	height: 150px;
-	cursor: pointer;
-}
-
-.lizard {
-	display: inline-block;
-	border-style:outset;
-	border-width:5px;
-	border-color:#1f1f1f;
-	display: block;
-	margin-left: 32%;
-	margin-right: auto;
-	float:left;
-	width: 150px;
-	height: 150px;
-	cursor: pointer;
-}
-
-.rock {
-	display: inline-block;
-	border-style:outset;
-	border-width:5px;
-	border-color:#1f1f1f;
-	display: block;
-	margin-left: auto;
-	margin-right: 32%; 
-	width: 150px;
-	height: 150px; 
-	cursor: pointer;
+	margin-right: 20px;
+	margin-bottom: 20px;
 }
 
 input[type=text] {	

@@ -3,4 +3,4 @@
 </div>
 		</div>	
 	
-<?php include('pagefooter.tpl.php');?>
+<?php include('../templates/pagefooter.tpl.php');?>
