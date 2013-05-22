@@ -12,7 +12,14 @@ h1 {
 	margin: 0px;
 }
 
+.scissors:hover, .spock:hover, .paper:hover, .lizard:hover, .rock:hover{
+	border-style:inset;
+	border-color:#ffad10;
+	background-color: #F2931A;
+}
+
 .scissors {
+	display: inline-block;
 	border-style:outset;
 	border-width:5px;
 	border-color:#1f1f1f;
@@ -22,14 +29,11 @@ h1 {
 	margin-bottom: -30px;
 	width: 150px;
 	height: 150px;
-}
-
-.scissors:hover {
-	border-style:inset;
-	border-color:#ffad10;
+	cursor: pointer;
 }
 
 .spock {
+	display: inline-block;
 	border-style:outset;
 	border-width:5px;
 	border-color:#1f1f1f;
@@ -39,14 +43,11 @@ h1 {
 	float:left;
 	width: 150px;
 	height: 150px;
-}
-
-.spock:hover {
-	border-style:inset;
-	border-color:#ffad10;
+	cursor: pointer;
 }
 
 .paper {
+	display: inline-block;
 	border-style:outset;
 	border-width:5px;
 	border-color:#1f1f1f;
@@ -56,13 +57,11 @@ h1 {
 	margin-bottom: 25px;
 	width: 150px;
 	height: 150px;
+	cursor: pointer;
 }
 
-.paper:hover {
-	border-style:inset;
-	border-color:#ffad10;
-}
 .lizard {
+	display: inline-block;
 	border-style:outset;
 	border-width:5px;
 	border-color:#1f1f1f;
@@ -72,14 +71,11 @@ h1 {
 	float:left;
 	width: 150px;
 	height: 150px;
-}
-
-.lizard:hover {
-	border-style:inset;
-	border-color:#ffad10;
+	cursor: pointer;
 }
 
 .rock {
+	display: inline-block;
 	border-style:outset;
 	border-width:5px;
 	border-color:#1f1f1f;
@@ -88,11 +84,7 @@ h1 {
 	margin-right: 32%; 
 	width: 150px;
 	height: 150px; 
-}
-
-.rock:hover {
-	border-style:inset;
-	border-color:#ffad10;
+	cursor: pointer;
 }
 
 input[type=text] {	

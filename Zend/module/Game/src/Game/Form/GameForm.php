@@ -16,7 +16,7 @@
 			$choiceEnum = $choices->getEnum();
 			
 			$this->setAttribute('method', 'post');
-			$this->setAttribute('New Game' , 'return submitCheck()');
+			$this->setAttribute('onsubmit' , 'return submitCheck()');
 
 			$this->add(array(
 				'name' => 'id',
@@ -77,20 +77,18 @@
 			
 			$this->add(array(
 				'name' => 'scissors',
-				'type' => 'Image',
 				'attributes' => array(
 					'class'  => 'scissors',
-					'type'  => 'Image',
+					'type'  => 'image',
 					'src'   => 'http://localhost/Zend/public/img/game/Scissors.png',
 					'height'=> '200',
 					'width' => '200',
 					'border'=> '10',
 					'alt'   => 'Scissors',
+					'value' => $choiceEnum[0],
 				),
 				'options' => array(
-					'value_options' => array(
-						'1' => $choiceEnum[0],
-					),
+					'value' => $choiceEnum[0],
 				),
 			));
 			
@@ -105,6 +103,7 @@
 					'width' => '200',
 					'border'=> '10',
 					'alt'   => 'Spock',
+					'value' => $choiceEnum[1],
 				),
 				'options' => array(
 					'value_options' => array(
@@ -124,6 +123,7 @@
 					'width' => '200',
 					'border'=> '10',
 					'alt'   => 'Paper',
+					'value' => 'New Game',
 				),
 				'options' => array(
 					'value_options' => array(
@@ -143,6 +143,7 @@
 					'width' => '200',
 					'border'=> '10',
 					'alt'   => 'Lizard',
+					'value' => 'New Game',
 				),
 				'options' => array(
 					'value_options' => array(
@@ -162,6 +163,7 @@
 					'width' => '200',
 					'border'=> '10',
 					'alt'   => 'Rock',
+					'value' => 'New Game',
 				),
 				'options' => array(
 					'value_options' => array(
