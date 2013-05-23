@@ -32,20 +32,7 @@
 			
 			$this->add(array(
 				'name' => 'choice2',
-				'type' => 'Radio',
-				'options' => array(
-					'label' => 'Your choice:',
-					'value_options' => array(
-						'1' => $choiceEnum[0],
-						'2' => $choiceEnum[1],
-						'3' => $choiceEnum[2],
-						'4' => $choiceEnum[3],
-						'5' => $choiceEnum[4],
-					),
-				),
-				'attributes' => array(
-					'value' => '1'
-				)
+				'type' => 'Text',
 			));
 			
 			

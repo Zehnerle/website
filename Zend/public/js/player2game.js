@@ -1,7 +1,4 @@
-
 /* Danke Gruppe 2! */
-
-
 function reply_click(id) {
 	var x = document.forms[0].choice2;
 	x.value = id;
@@ -12,22 +9,44 @@ function submitCheck() {
 	var returnval = true;
 	var form = document.forms[0];
 	
+	//Check E-Mail 2
 	if(form.mail2.value === '') {
 		returnval = false;
-		mail2 = form.mail2.parentNode.parentNode;
-		mail2.setAttribute('class','control-group error');
-		mail2.childNodes[0].innerHTML = 'Mail is missing';
+		on('player2mail_error');
 	} else {
-		mail2 = form.mail2.parentNode;
-		mail2.setAttribute('class','');
-		mail2.parentNode.childNodes[0]= '';
+		if(!checkEmailFormat(form.mail2.value)) {
+			returnval = false;
+			on('player2mail2_error');
+		} else {
+			off('player2mail2_error');
+		}
+		off('player2mail_error');
 	}
-	   
-	if(form.choice2.value === undefined || form.choice2.value === '' || form.choice2.value === null ){
+	
+	//Check Weapons  
+	if(form.choice2.value === undefined || form.choice2.value === '' || form.choice2.value === null ) {
 		returnval = false;
-		var el = document.getElementById('weapons');
-		el.innerHTML = 'Your choice is missing!';
+		on('weapon_error');
+	}else{
+		off('weapon_error');
 	}
 	
 	return returnval;
+}
+
+//Display element with id ON
+function on(id) {
+	document.getElementById(id).style.display = 'block';
+}
+
+//Display element with id OFF
+function off(id) {
+	document.getElementById(id).style.display = 'none';
+}
+
+//Check if Emailformat is valid
+function checkEmailFormat(email) {
+	var strReg = "^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$";
+	var regex = new RegExp(strReg);
+	  return(regex.test(email)); 
 }
