@@ -87,12 +87,11 @@
 		public function insertGame($game) {	
 		
 			$hash = $game->hash;
-			
-			if ($hash == 0)
+
+			if ($hash == null)
 				$this->collection->insert($game);
-			else
+			else 
 				$this->collection->update(array('hash' => $hash), $game);
-			
 		}
 		
 		
