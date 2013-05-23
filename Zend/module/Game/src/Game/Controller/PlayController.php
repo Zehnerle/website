@@ -7,6 +7,7 @@
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Zend\Session\Container;
 	use Zend\Mail\Message;
+	use Game\Model\MongoGameTable;
 
 	class PlayController extends AbstractActionController {
 	
@@ -23,9 +24,13 @@
 			$game->choice2--;	 // form and DB indices start at 1
 			$enum = $this->getGameLogic()->getEnum();
 			$game->choice2 = $enum[$game->choice2];
+			$game->choice1--;
+			$game->choice1 = $enum[$game->choice1];
 			
 			$game->getResult();
-			$this->getGameTable()->saveGame($game);	
+			$mongo = MongoGameTable::getDB();
+			$mongo->insertGame($game);	
+			//$this->getGameTable()->saveGame($game);	
 			
 			if($this->session->offsetExists('sendmail'))
 				if(!strcmp($this->session->offsetGet('sendmail'), 'yes'))					
@@ -64,14 +69,14 @@
 		}
 		
 		
-		public function getGameTable() {
+		/*public function getGameTable() {
 		
 			if (!$this->gameTable) {
 				$sm = $this->getServiceLocator();
 				$this->gameTable = $sm->get('Game\Model\GameTable');
 			}
 			return $this->gameTable;			
-		}
+		}*/
 		
 		
 		public function getSession() {

@@ -26,7 +26,23 @@
 			$this->winner = (isset($data['winner'])) ? $data['winner'] : null;
 			$this->hash = (isset($data['hash'])) ? $data['hash'] : hash('sha256', $this->player1.$this->player2.time());
 			
-		}		
+		}	
+
+		public function getArrayFormat() {
+			
+			return array (			
+				"title" => $this->id, 
+				"player1" => $this->player1,
+				"player2" => $this->player2,
+				"mail1" => $this->mail1,
+				"mail2" => $this->mail2, 
+				"choice1" => $this->choice1,
+				"choice2" => $this->choice2,
+				"winner" => $this->winner,
+				"hash" => $this->hash,				
+			);
+			
+		}
 		
 		public function getResult() {
 			

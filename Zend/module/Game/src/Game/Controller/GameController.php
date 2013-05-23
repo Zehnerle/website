@@ -4,6 +4,7 @@
 
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Zend\Session\Container;	
+	use Game\Model\MongoGameTable;
 
 	class GameController extends AbstractActionController {
 
@@ -14,22 +15,24 @@
 		public function indexAction() {
 		
 			$user = $this->getSession();
+			$mongo = MongoGameTable::getDB();		
 		
 			return array(
 				'user' => $user,
-				'highscore' => $this->getGameTable()->getHighscore(),
+				//'highscore' => $this->getGameTable()->getHighscore(),
+				'highscore' => $mongo->getHighscore(),
 			);
 		}
 		
 		
-		public function getGameTable() {
+		/*public function getGameTable() {
 		
 			if (!$this->gameTable) {
 				$sm = $this->getServiceLocator();
 				$this->gameTable = $sm->get('Game\Model\GameTable');
 			}
 			return $this->gameTable;			
-		}
+		}*/
 		
 		
 		public function getSession() {

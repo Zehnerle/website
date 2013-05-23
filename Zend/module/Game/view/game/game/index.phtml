@@ -15,9 +15,10 @@
 	
 	<?php foreach ($highscore as $score) : ?>
 		<tr>
-			<td><?php echo $this->escapeHtml($score->winner);?></td>			
-			<td><?php echo $this->escapeHtml($score->num);?>x</td>	
-			
+			<!--<td><?php echo $this->escapeHtml($score->winner);?></td>			
+			<td><?php echo $this->escapeHtml($score->num);?>x</td>	-->
+			<td><?php echo $this->escapeHtml($score['winner']);?></td>			
+			<td><?php echo $this->escapeHtml($score['num']);?>x</td>
 		</tr>
 	<?php endforeach; ?>
 	

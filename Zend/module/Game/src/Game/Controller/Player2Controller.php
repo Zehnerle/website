@@ -6,7 +6,7 @@
 	use Game\Model\Player2Filter;
 	use Game\Form\Player2Form; 
 	use Zend\Session\Container;	
-
+	use Game\Model\MongoGameTable;
 
 	class Player2Controller extends AbstractActionController {
 
@@ -18,7 +18,9 @@
 			$user = $this->getSession();
 			$hash = $this->hashCheck();
 			
-			$game = $this->getGameTable()->getGameByHash($hash);
+			//$game = $this->getGameTable()->getGameByHash($hash);
+			$mongo = MongoGameTable::getDB();
+			$game = $mongo->getGameByHash($hash);
 		
 			$form = new Player2Form();
 			
@@ -64,14 +66,14 @@
 		}
 		
 		
-		public function getGameTable() {
+		/*public function getGameTable() {
 		
 			if (!$this->gameTable) {
 				$sm = $this->getServiceLocator();
 				$this->gameTable = $sm->get('Game\Model\GameTable');
 			}
 			return $this->gameTable;			
-		}
+		}*/
 		
 		
 		public function getSession() {

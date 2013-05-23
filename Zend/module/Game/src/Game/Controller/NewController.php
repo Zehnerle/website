@@ -4,16 +4,18 @@
 
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Game\Model\Game;
-	use Game\Model\GameFilter;
-	use Game\Model\Mail;
+	//use Game\Model\GameFilter;
+	use Game\Model\Mail;	
+	use Game\Model\MongoGameTable;
 	use Game\Form\GameForm;  
 	use Zend\Session\Container;	
 	use Zend\Mail\Message;
+	
 
 	class NewController extends AbstractActionController {
 
-		protected $gameTable;
-		protected $tableGateway;
+		//protected $gameTable;
+		//protected $tableGateway;
 		protected $session;				
 		
 		
@@ -66,16 +68,17 @@
 			if ($form->isValid()) {
 				$data = $form->getData();
 				$game->exchangeArray($data);
-				
-				$this->getGameTable()->saveGame($game);
-				
+				$gameInfo = $game->getArrayFormat();
+								
+				$mongo = MongoGameTable::getDB();
+				$mongo->insertGame($gameInfo);
+				//$this->getGameTable()->saveGame($game); //MONGO
+		
 				$this->session->offsetSet('name', $game->player1);
 				$this->session->offsetSet('mail', $game->mail1);
 				
-				if(!strcmp($data['mailcheckbox'], 'mail')) {
+				if(!strcmp($data['mailcheckbox'], 'mail'))
                     $this->sendMail($game);
-					
-				}
 				
 				return $this->redirect()->toRoute('game');
 			}
@@ -98,7 +101,7 @@
 		}
 
 		
-		public function getGameTable() {
+		/*public function getGameTable() {
 		
 			if (!$this->gameTable) {
 				$sm = $this->getServiceLocator();
@@ -106,7 +109,7 @@
 				$this->tableGateway = $this->gameTable->getGateway();				
 			}
 			return $this->gameTable;			
-		}
+		}*/
 		
 		
 		public function getSession() {

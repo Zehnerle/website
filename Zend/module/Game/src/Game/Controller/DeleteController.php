@@ -4,7 +4,8 @@
 
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Zend\Session\Container;	
-	use Game\Model\GameTable;
+//	use Game\Model\GameTable;
+	use Game\Model\MongoGameTable;
 
 	class DeleteController extends AbstractActionController {
 
@@ -21,8 +22,11 @@
 			if ($request->isPost()) {			
 				$delete = $request->getPost('delete', 'No');
 
-				if ($delete == 'Yes')				
-					$this->getGameTable()->deleteGame($hash);
+				if ($delete == 'Yes') {			
+					//$this->getGameTable()->deleteGame($hash);
+					$mongo = MongoGameTable::getDB();
+					$mongo->deleteGame($hash);					
+				}					
 					
 				return $this->redirect()
 						->toRoute('game/result');	
@@ -35,14 +39,14 @@
 		}	
 
 		
-		public function getGameTable() {
+		/*public function getGameTable() {
 		
 			if (!$this->gameTable) {
 				$sm = $this->getServiceLocator();
 				$this->gameTable = $sm->get('Game\Model\GameTable');
 			}
 			return $this->gameTable;			
-		}
+		}*/
 		
 		
 		public function getSession() {
