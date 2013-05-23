@@ -15,18 +15,24 @@
 
 	echo $this->form()->openTag($form);
 	
-	echo "<h4>Player info:</h4>";
+	echo "<h4>Player info:</h4><hr />";
 	
 	echo $this->formHidden($form->get('id'));
 	echo $this->formRow($form->get('player1'));
+	echo "<div id='player1_error' class='error' style='display:none'>Error: Player1 Name could not be empty!</div>";
 	echo $this->formRow($form->get('mail1'));
+	echo "<div id='player1mail_error' class='error'  style='display:none'>Error: Player1 Mail could not be empty!</div>";
+	echo "<div id='player1mail2_error' class='error' style='display:none'>Error: Wrong Mail format! Format: test@mail.com</div>";
 	echo $this->formRow($form->get('player2'));
+	echo "<div id='player2_error' class='error' style='display:none'>Error: Player2 Name could not be empty!</div>";
 	echo $this->formRow($form->get('mail2'));
+	echo "<div id='player2mail_error' class='error' style='display:none'>Error: Player2 Mail could not be empty!</div>";
+	echo "<div id='player2mail2_error' class='error' style='display:none'>Error: Wrong Mail format! Format: test@mail.com</div>";
 	
-	echo "<h4>Your choice:</h4>";
+	echo "<h4>Your choice:</h4><hr />";
 	
 	$path = $this->basePath('public/img/game');
-	
+	echo "<div id='weapon_error' class='error' style='display:none'>Error: Choose your weapon!</div>";
 ?>
 
 <div id="weapons"></div>
@@ -39,7 +45,6 @@
 		<img src="<?php echo "$path/Lizard.png"; ?>" class="btn btn-primary" id="5" onClick="reply_click(this.id)">
 	</div>
 </div>
-
 	
 <?php
 	echo $this->formHidden($form->get('choice1'));

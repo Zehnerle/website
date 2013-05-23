@@ -1,7 +1,4 @@
-
 /* Danke Gruppe 2! */
-
-
 function reply_click(id) {
 	var x = document.forms[0].choice1;
 	x.value = id;
@@ -12,70 +9,74 @@ function submitCheck() {
 	var returnval = true;
 	var form = document.forms[0];
 	
+	//Check Player 1
 	if(form.player1.value === '') {
 		returnval = false;
-		player1 = form.player1.parentNode.parentNode;
-		player1.setAttribute('class','control-group error');
-		player1.childNodes[0].innerHTML = 'Player1 name field is missing!';
+		on('player1_error');
 	} else {
-		player1 = form.player1.parentNode;
-		player1.setAttribute('class','');
-		player1.parentNode.childNodes[0] = '';
-	}
-		   
-	if(form.mail1.value === '' || !checkEmailFormat(form.mail1.value)) {
-		returnval = false;
-		mail1 = form.mail1.parentNode.parentNode;
-		mail1.setAttribute('class','control-group error');
-		mail1.childNodes[0].innerHTML = 'Player1 mail is missing';
-	} else {
-		mail1 = form.mail1.parentNode;
-		mail1.setAttribute('class','');
-		mail1.parentNode.childNodes[0]= '';
-
+		off('player1_error');
 	}
 	
+	//Check E-Mail 1   
+	if(form.mail1.value === '') {
+		returnval = false;
+		on('player1mail_error');
+	} else {
+		if(!checkEmailFormat(form.mail1.value)) {
+			returnval = false;
+			on('player1mail2_error');
+		} else {
+			off('player1mail2_error');
+		}
+		off('player1mail_error');
+	}
+	
+	//Check Player 2
 	if(form.player2.value === '') {
 		returnval = false;
-		player2 = form.player2.parentNode.parentNode;
-		player2.setAttribute('class','control-group error');
-		player2.childNodes[0].innerHTML = 'Player2 name field is missing!';
+		on('player2_error');
 	} else {
-		player2 = form.player2.parentNode;
-		player2.setAttribute('class','');
-		player2.parentNode.childNodes[0] = '';
+		off('player2_error');
 	}
 	
-	if(form.mail2.value === '' || !checkEmailFormat(form.mail2.value)) {
+	//Check E-Mail 2
+	if(form.mail2.value === '') {
 		returnval = false;
-		mail2 = form.mail2.parentNode.parentNode;
-		mail2.setAttribute('class','control-group error');
-		mail2.childNodes[0].innerHTML = 'Player2 mail is missing';
+		on('player2mail_error');
 	} else {
-		mail2 = form.mail2.parentNode;
-		mail2.setAttribute('class','');
-		mail2.parentNode.childNodes[0]= '';
+		if(!checkEmailFormat(form.mail2.value)) {
+			returnval = false;
+			on('player2mail2_error');
+		} else {
+			off('player2mail2_error');
+		}
+		off('player2mail_error');
 	}
-	   
+	
+	//Check Weapons  
 	if(form.choice1.value === undefined || form.choice1.value === '' || form.choice1.value === null ) {
 		returnval = false;
-		document.getElementById('weapons').innerHTML = 'Your choice is missing!';
+		on('weapon_error');
+	}else{
+		off('weapon_error');
 	}
 	
 	return returnval;
 }
 
+//Display element with id ON
+function on(id) {
+	document.getElementById(id).style.display = 'block';
+}
 
+//Display element with id OFF
+function off(id) {
+	document.getElementById(id).style.display = 'none';
+}
+
+//Check if Emailformat is valid
 function checkEmailFormat(email) {
-
-	if(email.indexOf("@") === -1) {
-		return false;
-	}
-	else {
-		email = email.substring(email.indexOf("@") + 1);
-		if(email.indexOf(".") === -1) {
-			return false;
-		}
-		return true;
-	}
+	var strReg = "^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$";
+	var regex = new RegExp(strReg);
+	  return(regex.test(email)); 
 }

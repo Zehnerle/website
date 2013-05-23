@@ -41,10 +41,20 @@
 						<ul><li>Email Versand, ZF, SMTP: smtp.uibk.ac.at &#10004;</li></ul>
 						<ul><li>Revanche starten nach Spiel &#10004;</li></ul>
 						<ul><li>Highscore Liste auf Startseite &#10004;</li></ul>
-						<ul><li>Formular&uuml;berpr&uuml;fung mit JavaScript ohne JS-lib!</li></ul>
-						<ul><li>Usability: Erkl&auml;ungen, Waffen-Auswahl &uuml;ber Bilder, CSS/Design</li></ul>
+						<ul><li>Formular&uuml;berpr&uuml;fung mit JavaScript ohne JS-lib! &#10004;</li></ul>
+						<ul><li>Usability: Erkl&auml;ungen, Waffen-Auswahl &uuml;ber Bilder, CSS/Design &#10004;</li></ul>
 						<ul><li>Wiedererkennung per Cookie -> Vorausf&uuml;llen der eigenen Daten &#10004;</li></ul>
-						<ul><li>Testspiele: 10 Personen -> Feedback sammeln und dokumentieren</li></ul>
+						<ul><li>Testspiele: 10 Personen -> Feedback sammeln und dokumentieren &#10004;</li></ul>
+					</ul>
+					<ul><b>Task 8</b>
+						<li>Rock-paper-scissors-lizard-Spock Single Page App + MongoDB</li>
+						<ul><li>Single Page Application (kein Reload der Seite) mit jQuery</li></ul>
+						<ul><li>HTML wird nicht mehr vom Server dynamisch generiert</li></ul>
+						<ul><li>Anzeige der Highscores mit automatischen Reload (alle 30 Sekunden) in der Single Page Application</li></ul>
+						<ul><li>Gesamte Kommunikation mit dem Server &uuml;ber AJAX (jQuery)</li></ul>
+						<ul><li>Installation MongoDB am Server</li></ul>
+						<ul><li>Adaptierung Speicherung der Spiele von MySQL nach MongoDB</li></ul>
+						<ul><li>Eingabe von Textnachrichten</li></ul>
 					</ul>
 					
 				</div>
