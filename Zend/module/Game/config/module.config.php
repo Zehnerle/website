@@ -28,6 +28,17 @@
 					
 					'may_terminate' => true,
 					'child_routes' => array(
+					
+						'highscore' => array(
+							'type'    => 'literal',
+							'options' => array(
+								'route'    => '/highscore',
+								'defaults' => array(
+									'controller' => 'Game\Controller\Game',
+									'action'     => 'highscore',
+								),
+							),
+						),
 						
 						'new' => array(
 							'type'    => 'segment',
@@ -132,6 +143,9 @@
 		'view_manager' => array(
 			'template_path_stack' => array(
 				'game' => __DIR__ . '/../view',
+			),
+			'strategies' => array(
+            'ViewJsonStrategy',
 			),
 		),
 	);

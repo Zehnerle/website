@@ -40,6 +40,12 @@ fieldset {
 	margin-bottom: 40px;
 }
 
+textarea.msg {
+	width: 400px;
+	vertical-align:top;
+	margin-left: 20px;
+}
+
 input.inline {
 	float: left;
 	margin-right: 10px;

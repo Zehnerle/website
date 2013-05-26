@@ -54,6 +54,14 @@
 				)));
 				
 				$inputFilter->add($factory->createInput(array(
+					'name'     => 'msg2',
+					'filters'  => array(
+						array('name' => 'StripTags'),
+						array('name' => 'StringTrim'),
+					),
+				)));
+				
+				$inputFilter->add($factory->createInput(array(
 					'name'     => 'mailcheckbox',
 				)));
 

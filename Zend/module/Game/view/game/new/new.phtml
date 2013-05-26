@@ -48,7 +48,11 @@
 	
 <?php
 	echo $this->formHidden($form->get('choice1'));
+	
+	echo "<h4>Message and Mail for Player 2:</h4><hr />";
+	echo $this->formRow($form->get('msg1'));	
 	echo $this->formRow($form->get('mailcheckbox'));
+	
 	echo $this->formSubmit($form->get('submit'));
 	echo $this->form()->closeTag();
 ?>

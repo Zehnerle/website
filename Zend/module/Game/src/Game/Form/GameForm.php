@@ -61,10 +61,22 @@
 			));
 			
 			$this->add(array(
+				'name' => 'msg1',
+				'type' => 'TextArea',
+				'options' => array(
+					'label' => 'Message for Player2: ',
+				),
+				'attributes' => array(
+					'class' => 'msg',
+					'rows' => '4',
+				),
+			));
+			
+			$this->add(array(
 				'name' => 'mailcheckbox',
 				'type' => 'Checkbox',
 				'options' => array(
-					'label' => 'Notify Player 2 by mail?',				
+					'label' => 'Notify Player2 by mail?',				
 					'use_hidden_element' => true,
 					'checked_value' => 'mail',
 					'unchecked_value' => 'nomail',

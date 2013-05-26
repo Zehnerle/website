@@ -11,7 +11,9 @@
 		public $mail2;	
 		public $choice1;
 		public $choice2;
-		public $winner;
+		public $msg1;
+		public $msg2;
+		public $winner;		
 		public $hash;
 		
 		public function exchangeArray($data) {
@@ -22,7 +24,9 @@
 			$this->mail1 = (isset($data['mail1'])) ? $data['mail1'] : null;
 			$this->mail2 = (isset($data['mail2'])) ? $data['mail2'] : null;
 			$this->choice1 = (isset($data['choice1'])) ? $data['choice1'] : null;
-			$this->choice2 = (isset($data['choice2'])) ? $data['choice2'] : null;
+			$this->choice2 = (isset($data['choice2'])) ? $data['choice2'] : null;			
+			$this->msg1 = (isset($data['msg1'])) ? $data['msg1'] : null;
+			$this->msg2 = (isset($data['msg2'])) ? $data['msg2'] : null;
 			$this->winner = (isset($data['winner'])) ? $data['winner'] : null;
 			$this->hash = (isset($data['hash'])) ? $data['hash'] : hash('sha256', $this->player1.$this->player2.time());
 			
@@ -38,6 +42,8 @@
 				"mail2" => $this->mail2, 
 				"choice1" => $this->choice1,
 				"choice2" => $this->choice2,
+				"msg1" => $this->msg1,
+				"msg2" => $this->msg2, 
 				"winner" => $this->winner,
 				"hash" => $this->hash,				
 			);

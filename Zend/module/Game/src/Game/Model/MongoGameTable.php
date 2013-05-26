@@ -115,7 +115,6 @@
 						
 			$cursor = $this->collection->aggregate($group, $sort, $limit);	
 			
-			
 			$counter = 0;
 			
 			foreach ($cursor['result'] as $key => $winner) {

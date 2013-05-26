@@ -4,14 +4,15 @@
 
 	use Zend\Mvc\Controller\AbstractActionController;
 	use Zend\Session\Container;	
+	use Zend\View\Model\JsonModel;
 	use Game\Model\MongoGameTable;
+	use Zend\Json\Json;
 
 	class GameController extends AbstractActionController {
 
 		protected $gameTable;
-		protected $session;		
-	
-	
+		protected $session;			
+
 		public function indexAction() {
 		
 			$user = $this->getSession();
@@ -22,8 +23,19 @@
 				//'highscore' => $this->getGameTable()->getHighscore(),
 				'highscore' => $mongo->getHighscore(),
 			);
+		}	
+
+		public function highscoreAction() {
+
+			$mongo = MongoGameTable::getDB();	
+			
+			$result = array(
+				'highscore' => $mongo->getHighscore(),
+			);
+			
+			return $this->getResponse()->setContent(Json::encode($result));
+			
 		}
-		
 		
 		/*public function getGameTable() {
 		

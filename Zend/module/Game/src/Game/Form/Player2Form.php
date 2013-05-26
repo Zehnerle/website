@@ -35,6 +35,17 @@
 				'type' => 'Text',
 			));
 			
+			$this->add(array(
+				'name' => 'msg2',
+				'type' => 'TextArea',
+				'options' => array(
+					'label' => 'Message for Player1: ',
+				),
+				'attributes' => array(
+					'class' => 'msg',
+					'rows' => '4',
+				),
+			));			
 			
 			$this->add(array(
 				'name' => 'mailcheckbox',

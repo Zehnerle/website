@@ -15,7 +15,13 @@
 			$options   = new SmtpOptions(array(
 				'host' => 'smtp.uibk.ac.at',
 				'name' => 'smtp.uibk.ac.at',
-				'port' => 25,
+				'port' => 587,				
+				/*'connection_class'  => 'login',
+				'connection_config' => array(
+                'username' => '',
+                'password' => '',
+				'ssl'      => 'tls',
+				),*/
 			));
 			
 			$this->transport->setOptions($options);

@@ -49,6 +49,10 @@
 				
 			$link = "http://" . $_SERVER['HTTP_HOST'] . "/Zend/game/" . $game->hash . "/result";
 			
+			$msg = "";
+			if(!empty($game->msg2)) 
+				$msg = "\n\nMessage from Player2:\n'$game->msg2'\n";
+			
 			if($game->winner == 'TIE') 
 				$result = "TIE!! No winner...";
 			else if(!strcmp($game->player2, $game->player1) || 
@@ -57,11 +61,12 @@
 			else $result = "You lost!";
 			
 			$message = new Message();
-			$message->setBody("Hi '$game->player1'!\n\n'$game->player2' accepted the challenge: $result See the result of the game on this link: " .
+			$message->setBody("Hi '$game->player1'!\n\n'$game->player2' accepted the challenge: $result $msg \nSee the result of the game on this link: " .
 			$link . "\n\nHave a nice day!");
 			$message->addFrom("csae7189@uibk.ac.at");	
 			$message->addTo("$game->mail1");
 			$message->setSubject('Rock-Paper-Scissors-Lizard-Spock');
+			$message->setEncoding("UTF-8");
 			
 			$mail = new Mail();
 			$mail->sendMail($message);

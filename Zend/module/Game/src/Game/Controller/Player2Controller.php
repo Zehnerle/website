@@ -39,6 +39,7 @@
 					
 					if($data['mail2'] == $game->mail2) {
 						$game->choice2 = $data['choice2'];
+						$game->msg2 = $data['msg2'];
 						$this->session->offsetSet('name', $game->player2);
 						$this->session->offsetSet('mail', $game->mail2);
 						$this->session->offsetSet('game', $game);
@@ -60,6 +61,7 @@
 				'hash' => $hash,
 				'user' => $user,
 				'player2' => $game->player2,
+				'msg1' => $game->msg1,
 				'form' => $form
 			);
 		

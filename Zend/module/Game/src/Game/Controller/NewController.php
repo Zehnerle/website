@@ -88,10 +88,14 @@
 				
 			$link = "http://" . $_SERVER['HTTP_HOST'] . "/Zend/game/" . $game->hash . "/player2";
 			
+			$msg = "";
+			if(!empty($game->msg1)) 
+				$msg = "\n\nMessage from Player1:\n'$game->msg1'\n";
+			
 			$message = new Message();
-			$message->setBody("Hi '$game->player2'!\n\nYou were challenged by player '$game->player1' in 'Rock-Paper-Scissors-Lizard-Spock'. If you accept the challenge, follow this link: " .
+			$message->setBody("Hi '$game->player2'!\n\nYou were challenged by player '$game->player1' in 'Rock-Paper-Scissors-Lizard-Spock'. $msg \nIf you accept the challenge, follow this link: " .
 			$link . "\n\nHave a nice day!");
-			$message->addFrom("$game->mail1");	
+			$message->addFrom("csae7189@uibk.ac.at");	
 			$message->addTo("$game->mail2");
 			$message->setSubject('You were challenged in Rock-Paper-Scissors-Lizard-Spock!');
 			
