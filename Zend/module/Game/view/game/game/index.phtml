@@ -2,6 +2,16 @@
 	include(__DIR__ . '/../head.phtml');
 ?>
 
+<script type="text/javascript">
+$(document).ready(function(){
+Highscore.load();
+setInterval(function() {
+Highscore.removeold();
+Highscore.load();
+}, 1000);
+});
+ </script>
+
 <h3>
 	Highscore
 </h3>
@@ -17,7 +27,7 @@
 		<tr>
 			<!--<td><?php echo $this->escapeHtml($score->winner);?></td>			
 			<td><?php echo $this->escapeHtml($score->num);?>x</td>	-->
-			<td><?php echo $this->escapeHtml($score['winner']);?></td>			
+			<td><?php echo $this->escapeHtml($score['_id']);?></td>			
 			<td><?php echo $this->escapeHtml($score['num']);?>x</td>
 		</tr>
 	<?php endforeach; ?>

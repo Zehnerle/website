@@ -103,29 +103,34 @@
 		}
 		
 		public function getHighscore() {
+						
+			$group = array(
+						'$group' => array(
+							'_id' => '$winner',
+							'num' => array('$sum' => 1),								
+						),
+					);					
+			$sort = array('$sort' => array('num' => -1));								
+			$limit = array('$limit' => 12);						
+						
+			$cursor = $this->collection->aggregate($group, $sort, $limit);	
 			
-			$array = array();		
 			
-			$keys = array('winner' => true);
-			$initial = array('num' => 0);
-			$reduce = "function (obj, prev) { prev.num++; }";
+			$counter = 0;
 			
-			$condition = array('condition' => 
-					array('$and' => array(
-							array('winner' => array('$ne' => null)),
-							array('winner' => array('$ne' => 'TIE')),
-					))
-				);
+			foreach ($cursor['result'] as $key => $winner) {
+			
+				if($winner['_id'] === null || $winner['_id'] === 'TIE')
+					unset($cursor['result'][$key]);	
+				
+				else if ($counter > 10)
+					unset($cursor['result'][$key]);	
 
-			$cursor = $this->collection->group($keys, $initial, $reduce, $condition);			
-		
-			usort($cursor['retval'], function($a, $b) {
-				return $b['num'] - $a['num'];
-			});
+				$counter++;
+				
+			}			
 			
-			$cursor['retval'] = array_slice($cursor['retval'], 0, 10);
-		
-			return $cursor['retval'];
+			return $cursor['result'];
 		}
 		
 
