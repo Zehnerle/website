@@ -1,0 +1,15 @@
+Feedback:
+
+Positiv:
+-sehr übersichtlich
+-pluspunkte für link zum youtube video von Sheldon und der eingebundenen grafik
+-möglichkeit gegen sich selbst zu spielen(keine überprüfung ob mail1 und mail2 identisch)
+-design
+-highscoreliste
+
+
+Negativ:
+-für ein spiel zu wenig visuell, deshalb eher uninteressant zu spielen
+-zu lange dauer beim warten auf das resultat durch email
+-design(labelübersicht zu dunkel)
+-übersetzung oder beschreibung auf deutsch
