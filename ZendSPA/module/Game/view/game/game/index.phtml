@@ -1,0 +1,371 @@
+<?php
+	$title = 'Rock-paper-scissors-lizard-Spock';	
+	$this->headLink()->appendStylesheet($this->basePath("public/css/game.css"));
+	$this->headScript()->prependFile($this->basePath('public/js/helper.js'));	
+	$this->headScript()->prependFile($this->basePath("public/js/highscore.js"));
+	$this->headScript()->prependFile($this->basePath("public/js/navigation.js"));
+	$this->headScript()->prependFile($this->basePath('public/js/newgame.js'));	
+	$this->headScript()->prependFile($this->basePath('public/js/play.js'));
+	$this->headScript()->prependFile($this->basePath('public/js/player2.js'));
+	$this->headScript()->prependFile($this->basePath("public/js/results.js"));
+	$this->headScript()->prependFile($this->basePath("public/js/user.js"));
+	$this->headTitle($title);
+	$imgpath = $this->basePath('public/img/game');
+?>
+
+<h1>
+	<?php echo $this->escapeHtml($title); ?>
+</h1>
+
+
+<!-- NAVIGATION -->
+<p class="navi">
+    <a href="" id='linkhome' onClick="Navigation.links(this.id); return false;" class='link'>STARTSEITE</a>
+	
+	<a href="" id="linknew" onClick="Navigation.links(this.id); return false;" class='link'>NEUES SPIEL</a>
+	
+	<a href="" id="linkresult" onClick="Navigation.links(this.id); return false;" class='link'>SPIEL&Uuml;BERSICHT</a>
+	
+	<a href="" id="linkrules" onClick="Navigation.links(this.id); return false;" class='link'>SPIELREGELN</a>
+	
+	<a href="" id="linkhelp" onClick="Navigation.links(this.id); return false;" class='link'>HILFE</a>
+	<br/>
+	<strong id='user'></strong>
+</p>
+
+
+<!-- INDEX - HIGHSCORE -->
+<div id='index' class='site'>
+
+	<h3>
+		Rangliste
+	</h3>
+
+	<table class="table" id="highscore" style="width: 400px;">
+		
+		<thead>
+			<tr>
+				<th>Spieler</th>
+				<th>gewonnen</th>
+			</tr>	
+		</thead>
+		
+		<tbody></tbody>
+		
+	</table>
+</div>
+
+
+<!-- NEW GAME -->
+<div id='newgame' class='site' style='display:none'>
+
+	<h3>
+		Neues Spiel
+	</h3>	
+		
+	<form method="post" name="game" onsubmit="return Newgame.submitCheck()" id="game">
+	
+		<h4>Spieler - Informationen:</h4>
+		<hr />
+		
+		<label>
+			<span>Spieler1 Name: </span>
+			<input type="text" name="player1" value="">
+		</label>
+		<div id='player1_error' class='error' style='display:none'></div>
+		
+		<label>
+			<span>Spieler1 E-Mail: </span>
+			<input type="text" name="mail1" value="">
+		</label>
+		<div id='player1mail_error' class='error'  style='display:none'></div>
+		
+		<label>
+			<span>Spieler2 Name: </span>
+			<input type="text" name="player2" value="">
+		</label>
+		<div id='player2_error' class='error' style='display:none'></div>
+		
+		<label>
+			<span>Spieler2 E-Mail: </span>
+			<input type="text" name="mail2" value="">
+		</label>
+		<div id='player2mail_error' class='error' style='display:none'></div>
+		
+		<h4>Deine Wahl:</h4>
+		<hr />
+		<p style='margin-bottom:20px;'>(klicke auf das Bild, um Informationen zu sehen)</p>
+
+		<div class="btn-group">
+			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="choice" id="1" onClick="Newgame.choice(this.id);">
+			<img src="<?php echo "$imgpath/Paper.png"; ?>" class="choice" id="2" onClick="Newgame.choice(this.id)">
+			<img src="<?php echo "$imgpath/Scissors.png"; ?>" class="choice" id="3" onClick="Newgame.choice(this.id)">
+			<img src="<?php echo "$imgpath/Spock.png"; ?>" class="choice" id="4" onClick="Newgame.choice(this.id)">
+			<img src="<?php echo "$imgpath/Lizard.png"; ?>" class="choice" id="5" onClick="Newgame.choice(this.id)">
+		</div>
+		
+		<div id='weapon_error' class='error' style='display:none'></div>
+		<div id="weaponinfo" class='info'></div>
+		
+		<input type="text" name="choice1" value="" style='display:none'>
+
+		<h4>Nachricht und Mail an Spieler2:</h4>
+		<hr />
+		
+		<label>
+			<span>Nachricht an Spieler2: </span>
+			<textarea name="msg1" class="msg" rows="4"></textarea>
+		</label>
+		
+		<label>
+			<input type="checkbox" name="mailcheckbox" class="inline" value="">
+			<span>Soll Spieler2 per Mail benachrichtigt werden (offene Spiele k&ouml;nnen ansonsten auch in der Spiel&uuml;bersicht eingesehen werden)?</span>
+		</label>
+		
+		<input type="submit" name="submit" id="submitbutton" value="Neues Spiel">
+	</form>
+</div>
+
+
+<!-- PLAYER2 -->
+<div id='player2' class='site' style='display:none'>
+	
+	<h3></h3>
+
+	<form method="post" name="game" onsubmit="return Player2.submitCheck()" id="game">
+	
+		<input type="hidden" name="hash" value="">
+		
+		<h4>Deine Wahl:</h4>	
+		<hr>
+		
+		<p style='margin-bottom:20px;'>(klicke auf das Bild, um Informationen zu sehen)</p>
+		
+		<div class="btn-group">
+			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="choice" id="1" onClick="Player2.choice(this.id)">
+			<img src="<?php echo "$imgpath/Paper.png"; ?>" class="choice" id="2" onClick="Player2.choice(this.id)">
+			<img src="<?php echo "$imgpath/Scissors.png"; ?>" class="choice" id="3" onClick="Player2.choice(this.id)">
+			<img src="<?php echo "$imgpath/Spock.png"; ?>" class="choice" id="4" onClick="Player2.choice(this.id)">
+			<img src="<?php echo "$imgpath/Lizard.png"; ?>" class="choice" id="5" onClick="Player2.choice(this.id)">
+		</div>
+		
+		<div id='weapon_error' class='error' style='display:none'></div>
+		<div id="weaponinfo" class='info'></div>
+		
+		<input type="text" name="choice2" value="" style='display:none'>
+		<h4>Nachricht und Mail an Spieler1:</h4>
+
+		<hr />
+		<div id="msghidden"></div>
+		
+		<label>
+			<span>Nachricht an Spieler1:</span>
+			<textarea name="msg2" class="msg" rows="4"></textarea>
+		</label>
+		
+		<label>
+			<input type="checkbox" name="mailcheckbox" class="inline" value="mail">
+			<span>Soll Spieler1 per Mail benachrichtigt werden (offene Spiele k&ouml;nnen ansonsten auch in der Spiel&uuml;bersicht eingesehen werden)?</span>
+		</label>
+		
+		<input type="submit" name="submit" id="submitbutton" value="Spiele!">
+	
+	</form>
+
+</div>
+
+<!-- PLAY -->
+<div id='play' class='site' style='display:none'>
+
+	<h3 id='result'></h3>
+
+	<h4>
+		Spiel&uuml;bersicht:
+	</h4>
+
+	<table class="table" id='result'>
+		<thead>
+			<tr>
+				<th>Spieler1</th>
+				<th>Spieler2</th>
+				<th>Waffe1</th>
+				<th>Waffe2</th>
+				<th>Sieger</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+		
+	</table>
+
+</div>
+
+
+<!-- ACTUAL GAME RESULT -->
+<div id='actualgame' class='site' style='display:none'>
+	<h3 id='actualgameh3'>
+		Spielresultat
+	</h3>
+
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Spieler1</th>
+				<th>Spieler2</th>
+				<th>Waffe1</th>
+				<th>Waffe2</th>
+				<th>Sieger</th>
+			</tr>	
+		</thead>		
+		
+		<tbody></tbody>		
+		
+	</table>
+</div>
+
+
+<!-- GUEST - NO RESULTS -->
+<div id='guest' class='site' style='display:none'></div>
+
+
+<!-- RESULTS -->
+<div id='results' class='site' style='display:none'>
+		
+	<div id='opengames'>
+		<h3>
+			Offene Spiele
+		</h3>
+
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Spieler1</th>
+					<th>Spieler2</th>
+					<th>&nbsp;</th>
+				</tr>	
+			</thead>		
+			
+			<tbody></tbody>		
+			
+		</table>
+	</div>
+
+		
+	<div id='closedgames'>
+		<h3>
+			Abgeschlossene Spiele
+		</h3>
+
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Spieler1</th>
+					<th>Spieler2</th>
+					<th>Waffe1</th>
+					<th>Waffe2</th>
+					<th>Sieger</th>
+				</tr>	
+			</thead>		
+			
+			<tbody></tbody>		
+			
+		</table>
+	</div>
+	
+</div>
+
+<!-- RULES -->
+<div id='ruless' class='site' style='display:none'>
+
+	<h3>
+		Regeln
+	</h3>
+
+	<img src="<?php echo "$imgpath/game.png"?>" align="right" style="padding-right:20%;" />
+
+	<h4>
+		Das Spiel geht so:
+	</h4>
+		
+	<p>
+		<strong>Beide Spieler k&ouml;nnen zwischen diesen 5 Waffen w&auml;hlen: </strong>
+		
+			<ul>
+				<li>ROCK / STEIN</li>
+				<li>PAPER / PAPIER</li>
+				<li>SCISSORS / SCHERE</li>
+				<li>LIZARD / ECHSE</li>
+				<li>SPOCK</li>
+			</ul>
+		
+	</p>
+
+	<p>		
+		<strong>Der Sieger wird nach folgenden Regeln entschieden:</strong>		
+			<ul>
+				<li>Scissors cut paper / Schere schneidet Papier</li>
+				<li>Paper covers rock / Papier bedeckt Stein</li>
+				<li>Rock crushes lizard / Stein zerdr&uuml;ckt Echse</li>
+				<li>Lizard poisons Spock / Echse vergiftet Spock</li>
+				<li>Spock vaporizes scissors / Spock zerschleudert Schere</li>
+				<li>Scissors decapitate lizard / Schere k&ouml;pft Echse</li>
+				<li>Lizard eats paper / Echse isst Papier</li>
+				<li>Paper disproves Spock / Papier widerlegt Spock</li>
+				<li>Spock vaporizes rock / Spock zerschleudert Stein</li>
+				<li>Rock breaks scissors / Stein zerbricht Schere</li>
+			</ul>	
+		<br />
+	</p>
+
+	<h4>
+		Lass Dir die Regeln von Sheldon erkl&auml;ren: <a href="http://www.youtube.com/watch?v=iapcKVn7DdY">Youtube Video (englisch)</a>
+	</h4>	
+		
+	</p>
+
+</div>
+
+
+<!-- HELP -->
+<div id='helps' class='site' style='display:none'>
+
+	<h3>
+		Hilfe
+	</h3>
+		
+	<h4>
+		Starte ein neues Spiel:
+	</h4>
+
+	<p>
+		Klicke auf 'Neues Spiel' und f&uuml;ge die Personendaten (Name und E-Mail) von Dir und Deinem Gegner ein.<br />
+		Gib eine g&uuml;ltige E-Mail-Adresse ein, falls Du deinen Gegner per Mail benachrichtigen willst.
+	</p>
+
+	<h4>
+		Nachdem Du herausgefordert wurdest:
+	</h4>
+
+	<p>
+		W&auml;hle deine Waffe und starte das Spiel. Das Resultat wird Dir sofort angezeigt. 
+		Du kannst das Ergebnis auch Deinem Gegner per Mail mitteilen.
+	</p>
+
+
+	<h4>
+		Revanche:
+	</h4>
+
+	<p>		
+		Falls Du verloren hast, klicke auf den Link, um eine Revanche zu starten. Du musst nur Deine Waffe w&auml;hlen und best&auml;tigen.
+	</p>
+		
+
+	<h4>
+		Spiel&uuml;bersicht:
+	</h4>
+
+	<p>		
+		Du kannst Deine offenen und abgeschlossenen Spiele in der Spiel&uuml;bersicht einsehen.
+	</p>
+
+</div>
