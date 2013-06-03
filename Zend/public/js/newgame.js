@@ -5,7 +5,7 @@ function reply_click(id) {
 }
   
 function submitCheck() {
-
+	
 	var returnval = true;
 	var form = document.forms[0];
 	
@@ -13,6 +13,7 @@ function submitCheck() {
 	if(form.player1.value === '') {
 		returnval = false;
 		on('player1_error');
+		
 	} else {
 		off('player1_error');
 	}
