@@ -10,6 +10,15 @@ var Result = {
 			
 			var obj = jQuery.parseJSON(data);				
 			Result.printActualGame(obj);
+			var revanche = '';
+			
+			if((obj.actualgame.player1 != obj.actualgame.winner) &&
+				(obj.actualgame.winner != 'Unentschieden')) {
+				revancheData = obj.actualgame;
+				revanche = " <a href='" + getPath() + "#new' onClick='Newgame.externalRevanche();'>Revanche starten?</a>";
+			}
+			
+			$('#actualgameh3').append(revanche);
 			
 		});
 	

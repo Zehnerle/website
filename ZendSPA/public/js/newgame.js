@@ -32,6 +32,18 @@ var Newgame = {
 		$('.site').hide();
 		$('#newgame').show();		
 	},
+	
+	externalRevanche: function externalRevanche() {
+		hideWeaponInfo();
+		var form = document.forms[0];
+		form.choice1.value = '';
+		form.player1.value = revancheData.player1;
+		form.player2.value = revancheData.player2;
+		form.mail1.value = revancheData.mail1;
+		form.mail2.value = revancheData.mail2;
+		$('.site').hide();
+		$('#newgame').show();		
+	},
 			
 	choice: function(id) {
 		document.forms[0].choice1.value = id;

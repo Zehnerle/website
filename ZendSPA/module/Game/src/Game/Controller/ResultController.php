@@ -15,7 +15,7 @@
 		
 		public function resultAction() {	
 		
-			$mongo = MongoGameTable::getDB();			
+			$mongo = MongoGameTable::getDB();
 
 			$hash = $this->params()->fromRoute('hash', 0);
 			$enum = $this->getGameLogic()->getEnum();
@@ -42,7 +42,7 @@
 			if(!empty($user)) {
 								
 				$results = array(
-					"user" => $user,
+					'user' => $user,
 					'opengames' => $mongo->fetchOpenGames($user),
 					'closedgames' => $mongo->fetchClosedGames($user),
 					'enum' => $enum,
