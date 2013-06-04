@@ -67,6 +67,7 @@
 	
 		<h4>Spieler - Informationen:</h4>
 		<hr />
+		<p style='margin-bottom:20px;'>(Spielername muss zwischen 3 und 10 Zeichen lang sein)</p>
 		
 		<label>
 			<span>Spieler1 Name: </span>
@@ -110,11 +111,12 @@
 		<div class="btn-group" data-toggle="buttons-radio">
 			<img src="<?php echo "$imgpath/Scissors.png"; ?>" class="btn scissors" id="3" onClick="Newgame.choice(this.id);">
 			<img src="<?php echo "$imgpath/Spock.png"; ?>" class="btn spock" id="4" onClick="Newgame.choice(this.id);">
-			<div id="weaponinfo" class='info'></div>
 			<img src="<?php echo "$imgpath/Paper.png"; ?>" class="btn paper"id="2" onClick="Newgame.choice(this.id);">
 			<img src="<?php echo "$imgpath/Lizard.png"; ?>" class="btn lizard" id="5" onClick="Newgame.choice(this.id);">
 			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="btn rock" id="1" onClick="Newgame.choice(this.id);">
 		</div>
+		
+		<div id="weaponinfo" class='info'></div>
 
 		<input type="text" name="choice1" value="" style='display:none'>
 
@@ -150,6 +152,7 @@
 		
 		<p style='margin-bottom:20px;'>(klicke auf das Bild, um Informationen zu sehen)</p>
 		
+		<!--
 		<div class="btn-group">
 			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="choice" id="1" onClick="Player2.choice(this.id)">
 			<img src="<?php echo "$imgpath/Paper.png"; ?>" class="choice" id="2" onClick="Player2.choice(this.id)">
@@ -157,8 +160,18 @@
 			<img src="<?php echo "$imgpath/Spock.png"; ?>" class="choice" id="4" onClick="Player2.choice(this.id)">
 			<img src="<?php echo "$imgpath/Lizard.png"; ?>" class="choice" id="5" onClick="Player2.choice(this.id)">
 		</div>
+		-->
 		
 		<div id='weapon_error' class='error' style='display:none'></div>
+		
+		<div class="btn-group" data-toggle="buttons-radio">
+			<img src="<?php echo "$imgpath/Scissors.png"; ?>" class="btn scissors" id="3" onClick="Player2.choice(this.id);">
+			<img src="<?php echo "$imgpath/Spock.png"; ?>" class="btn spock" id="4" onClick="Player2.choice(this.id);">
+			<img src="<?php echo "$imgpath/Paper.png"; ?>" class="btn paper"id="2" onClick="Player2.choice(this.id);">
+			<img src="<?php echo "$imgpath/Lizard.png"; ?>" class="btn lizard" id="5" onClick="Player2.choice(this.id);">
+			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="btn rock" id="1" onClick="Player2.choice(this.id);">
+		</div>
+		
 		<div id="weaponinfo" class='info'></div>
 		
 		<input type="text" name="choice2" value="" style='display:none'>

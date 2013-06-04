@@ -41,15 +41,26 @@ h1 {
 	width: 150px;
 	height: 150px;
 	cursor: pointer;
+	margin-right: 10px;
 }
 
-.scissors{
+.scissors, .spock, .paper, .lizard{
+	float: left;
+}
+
+.info{
+	margin-top: 20px;
+	color: #ffad10;
+}
+
+/*
+.scissors, .spock, .info, .paper{
    margin-left: auto;
    margin-right: auto;
    margin-bottom: -25px;
  }
- 
- .spock {
+
+.spock {
    margin-left: 20%;
    margin-right: auto; 
    float:left;
@@ -60,7 +71,7 @@ h1 {
    margin-right: 20%; 
    margin-bottom: 25px;
  }
- 
+
  .lizard {
    margin-left: 32%;
    margin-right: auto;
@@ -70,7 +81,20 @@ h1 {
  .rock {
    margin-left: auto;
    margin-right: 32%; 
-} 
+}
+
+Info message for the weapons
+.info{
+	display: block;
+	margin-top: 60px;
+	margin-left: 50px;
+	margin-right: auto; 
+	margin-bottom: 25px;
+	color: #ffad10;
+	float:left;
+	width: 300px;
+	height: 70px;
+}*/
 
 /*Errorwarnings which are shown when a field is not set correctly*/
 .error{
@@ -95,18 +119,6 @@ img.btn {
 	color: red;
 	margin-bottom: 15px;
 	font-weight: bold;
-}
-
-.info{
-	display: block;
-	margin-top: 60px;
-	margin-left: 50px;
-	margin-right: auto; 
-	margin-bottom: 25px;
-	color: #ffad10;
-	float:left;
-	width: 300px;
-	height: 70px;
 }
 
 img.choice {
@@ -162,10 +174,6 @@ h4 {
 
 p.navi {
 	margin-bottom: 30px;
-}
-
-.error {
-	color: red;
 }
 
 fieldset {
