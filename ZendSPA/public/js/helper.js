@@ -20,11 +20,13 @@ function weaponInfo(choice, site) {
 	else if(choice == 5)	
 		text = pre + "LIZARD / ECHSE:</strong><br>BESIEGT Papier und Spock<br>VERLIERT GEGEN Stein und Schere";
 		
-	$(site + ' #weaponinfo').html(text).show();
+	$(site + ' .weaponinfo').html(text).show();
 };
 
 function hideWeaponInfo() {
-	$('#weaponinfo').hide();
+	$('#newgame #weaponinfo').hide();
+	$('#player2 #weaponinfo').hide();
+	$(' .weaponinfo').hide();
 }
 
 //Check if Emailformat is valid

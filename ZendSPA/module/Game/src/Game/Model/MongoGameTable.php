@@ -113,17 +113,26 @@
 			
 			$counter = 0;
 			
+			/*
 			foreach ($cursor['result'] as $key => $winner) {
 			
 				if($winner['_id'] === null || $winner['_id'] === 'TIE')
 					unset($cursor['result'][$key]);	
 				
-				else if ($counter > 10)
+				else if ($counter > 11)
 					unset($cursor['result'][$key]);	
-
+					
 				$counter++;
 				
-			}			
+			}*/
+			
+			
+			foreach ($cursor['result'] as $key => $winner) {
+				if($winner['_id'] === null || $winner['_id'] === 'TIE')
+					unset($cursor['result'][$key]);
+			}
+			$cursor['result'] = array_slice($cursor['result'], 0, 10); 
+			
 			
 			return $cursor['result'];
 		}

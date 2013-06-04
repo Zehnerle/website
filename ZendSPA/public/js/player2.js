@@ -67,7 +67,7 @@ var Player2 = {
 			});		
 			
 		}else{	//Scroll to the first form playe1
-				$('html, body').animate({ scrollTop: $('#weapon_error').offset().top - 50}, 500);
+				$('html, body').animate({ scrollTop: $('#weapon_error').offset().top - 100}, 500);
 		}	
 		
 		return false;
