@@ -29,6 +29,8 @@
 	<a href="" id="linkrules" onClick="Navigation.links(this.id); return false;" class='link'>SPIELREGELN</a>
 	
 	<a href="" id="linkhelp" onClick="Navigation.links(this.id); return false;" class='link'>HILFE</a>
+	
+	<a href="" id="linkhelp" onClick="Navigation.links(this.id); return false;" class='link'>FEEDBACK</a>
 	<br/>
 	<strong id='user'></strong>
 </p>
@@ -116,7 +118,7 @@
 			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="btn rock" id="1" onClick="Newgame.choice(this.id);">
 		</div>
 		
-		<div id="weaponinfo" class='info'></div>
+		<div id="weaponinfo" class='weaponinfo'></div>
 
 		<input type="text" name="choice1" value="" style='display:none'>
 
@@ -172,7 +174,7 @@
 			<img src="<?php echo "$imgpath/Rock.png"; ?>" class="btn rock" id="1" onClick="Player2.choice(this.id);">
 		</div>
 		
-		<div id="weaponinfo" class='info'></div>
+		<div id="weaponinfo" class='weaponinfo'></div>
 		
 		<input type="text" name="choice2" value="" style='display:none'>
 		<h4>Nachricht und Mail an Spieler1:</h4>
