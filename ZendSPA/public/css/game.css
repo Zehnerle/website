@@ -1,6 +1,6 @@
 body { 
 	background-color: #1f1f1f; 
-	font-family: verdana, sans-serif;
+	font-family: verdana, sans serif;
 	font-size: 15px;
 	color: #c6c6c6;
 	margin: 60px 0px 0px 0px;
@@ -11,6 +11,81 @@ h1 {
 	font-size: 35px;
 	margin: 0px;
 }
+
+/*Center the button-group*/
+.btn-group{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Hover a Weapon*/
+.scissors:hover, .spock:hover, .paper:hover, .lizard:hover, .rock:hover, .scissors.active:hover, .spock.active:hover, .paper.active:hover, .lizard.active:hover, .rock.active:hover{
+	border-style:inset;
+	border-color:#ffad10;
+	background-color: #F2931A;
+}
+
+/*Selected Weapon*/
+.scissors.active, .spock.active, .paper.active, .lizard.active, .rock.active{
+	border-style:outset;
+	border-color:#1CBA00;
+	background-color: #0F630E;
+}
+
+.scissors, .spock, .paper, .lizard, .rock{
+	border-style:outset;
+	border-width:5px;
+	border-color:#1f1f1f;
+	display: block;
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+}
+
+.scissors{
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: -25px;
+ }
+ 
+ .spock {
+   margin-left: 20%;
+   margin-right: auto; 
+   float:left;
+ }
+ 
+ .paper {
+   margin-left: auto;
+   margin-right: 20%; 
+   margin-bottom: 25px;
+ }
+ 
+ .lizard {
+   margin-left: 32%;
+   margin-right: auto;
+   float:left;
+ }
+ 
+ .rock {
+   margin-left: auto;
+   margin-right: 32%; 
+} 
+
+/*Errorwarnings which are shown when a field is not set correctly*/
+.error{
+	color: red;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+/*
+img.btn {
+	width: 150px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+*/
 
 .link {
 	margin-right: 20px;
@@ -23,8 +98,15 @@ h1 {
 }
 
 .info{
+	display: block;
+	margin-top: 60px;
+	margin-left: 50px;
+	margin-right: auto; 
+	margin-bottom: 25px;
 	color: #ffad10;
-	margin-bottom: 10px;
+	float:left;
+	width: 300px;
+	height: 70px;
 }
 
 img.choice {
@@ -32,6 +114,7 @@ img.choice {
 	margin-right: 20px;
 	margin-bottom: 20px;
 }
+
 
 input[type=text] {	
 	margin-left: 20px;

@@ -36,6 +36,7 @@
 				echo "<a href='/".$folder."/exercises.php' class='navigation ".$exercises."'>exercises</a>";
 				echo "<a href='/".$folder."/wiki.php' class='navigation ".$wiki."'>wiki</a>";
 				echo "<a href='/Zend/game' class='navigation'>game</a>";
+				echo "<a href='/ZendSPA/game' class='navigation'>game(SPA)</a>";
 				echo "<a href='/".$folder."/links.php' class='navigation ".$links."'>links</a>";
 		?>
 		</div>

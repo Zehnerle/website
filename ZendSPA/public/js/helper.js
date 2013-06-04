@@ -34,6 +34,13 @@ function checkEmailFormat(email) {
 	  return(regex.test(email)); 
 }
 
+//Check if Playerformat is valid
+function checkPlayerFormat(player) {
+	if(player.length < 3 || player.length > 10){
+		return false;
+	}
+	return true;
+}
 
 function weaponCheck(value, field) {
 
@@ -51,9 +58,13 @@ function weaponCheck(value, field) {
 function playerCheck(value, field) {
 
 	var emptyerror = "Feld darf nicht leer sein!";
+	var wrongplayererror = "Spielername muss zwischen 3 und 10 Zeichen lang sein!";
 
 	if(value === '') {
 		field.html(emptyerror).show();
+		return false;
+	} else if(!checkPlayerFormat(value)) {
+		field.html(wrongplayererror).show();
 		return false;
 	} else {
 		field.hide();
@@ -71,12 +82,12 @@ function mailCheck(value, field) {
 
 	if(value === '') {
 		field.html(emptyerror).show();
-		return false;		
+		return false;
 	} else if(!checkEmailFormat(value)) {
 		field.html(wrongformaterror).show();
 		return false;
 	} else
-		$m1_field.hide();
+		field.hide();
 
 	return true;
 

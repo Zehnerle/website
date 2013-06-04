@@ -13,7 +13,7 @@ function submitCheck() {
 	if(form.player1.value === '') {
 		returnval = false;
 		on('player1_error');
-		
+		$('html, body').animate({ scrollTop: $(form.player1).offset().top - 50}, 500);
 	} else {
 		off('player1_error');
 	}

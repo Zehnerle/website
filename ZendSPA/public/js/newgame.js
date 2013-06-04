@@ -55,7 +55,7 @@ var Newgame = {
 
 		var success = true;
 		var form = document.forms[0];	
-		var path = getPath();		
+		var path = getPath();
 		
 		success &= Newgame.checkValues(form);
 			
@@ -86,7 +86,9 @@ var Newgame = {
 				}
 			});		
 			
-		}	
+		}else{	//Scroll to the first form playe1
+				$('html, body').animate({ scrollTop: $(form.player1).offset().top - 50}, 500);
+		}
 		
 		return false;
 	},
@@ -102,7 +104,7 @@ var Newgame = {
 		$wp_field = $('#newgame #weapon_error');
 		
 		//Check Player Infos
-		success &= playerCheck(form.player1.value, $p1_field);		
+		success &= playerCheck(form.player1.value, $p1_field);
 		success &= mailCheck(form.mail1.value, $m1_field);
 		success &= playerCheck(form.player2.value, $p2_field);
 		success &= mailCheck(form.mail2.value, $m2_field);
