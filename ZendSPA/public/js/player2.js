@@ -61,8 +61,8 @@ var Player2 = {
 					$('#player2 form').each(function(){
 					  this.reset();
 					});				
-					hideWeaponInfo();
 					User.getUser();
+					hideWeaponInfo('#player2');
 				}
 			});		
 			

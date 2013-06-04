@@ -48,7 +48,7 @@ h1 {
 	float: left;
 }
 
-.weaponinfo{
+.weaponinfo, .info{
 	margin-top: 20px;
 	color: #ffad10;
 }

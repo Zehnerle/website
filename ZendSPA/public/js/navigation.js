@@ -14,7 +14,9 @@ $(document).ready(function(){
 		else if(anchor[0] == 'rules')
 			Navigation.rules();		
 		else if(anchor[0] == 'help')	
-			Navigation.help();	
+			Navigation.help();
+		else if(anchor[0] == 'feedback')	
+			Navigation.feedback();
 
 		// EXTERNAL LINKS TO PLAYER2 AND GAME RESULT
 		else if(anchor[0] == 'player2') {
@@ -47,7 +49,9 @@ var Navigation = {
 		else if(!id.localeCompare('linkrules'))	
 			Navigation.rules();
 		else if(!id.localeCompare('linkhelp'))	
-			Navigation.help();		
+			Navigation.help();
+		else if(!id.localeCompare('linkfeedback'))	
+			Navigation.feedback();
 	},
 	
 	index: function() {
@@ -76,6 +80,11 @@ var Navigation = {
 	help: function() {
 		window.location.hash = 'help';	
 		$('#helps').show();
+	},
+	
+	feedback: function() {
+		window.location.hash = 'feedback';	
+		$('#feedbacks').show();
 	}
 
 };

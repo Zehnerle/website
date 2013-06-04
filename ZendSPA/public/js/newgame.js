@@ -22,7 +22,7 @@ var Newgame = {
 	},
 	
 	revanche: function revanche() {
-		hideWeaponInfo();
+		hideWeaponInfo('#newgame');
 		var form = document.forms[0];
 		form.choice1.value = '';
 		form.player1.value = revancheData.player2;
@@ -34,7 +34,7 @@ var Newgame = {
 	},
 	
 	externalRevanche: function externalRevanche() {
-		hideWeaponInfo();
+		hideWeaponInfo('#newgame');
 		var form = document.forms[0];
 		form.choice1.value = '';
 		form.player1.value = revancheData.player1;
@@ -82,7 +82,8 @@ var Newgame = {
 					Highscore.load();
 					$('#index').show();
 					User.getUser();
-					hideWeaponInfo();
+					hideWeaponInfo('#newgame');
+					//$('.btn-group').css('background-color':'#1f1f1f';);
 				}
 			});		
 			
