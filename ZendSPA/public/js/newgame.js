@@ -83,7 +83,10 @@ var Newgame = {
 					$('#index').show();
 					User.getUser();
 					hideWeaponInfo('#newgame');
-					//$('.btn-group').css('background-color':'#1f1f1f';);
+					$('.btn-group .scissors.active .spock.active .paper.active .lizard.active .rock.active').css({
+						'background-color':'#1f1f1f',
+						'border-color':'#1f1f1f'
+						});
 				}
 			});		
 			

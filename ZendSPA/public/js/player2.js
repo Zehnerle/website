@@ -63,6 +63,10 @@ var Player2 = {
 					});				
 					User.getUser();
 					hideWeaponInfo('#player2');
+					$('.btn-group .scissors.active .spock.active .paper.active .lizard.active .rock.active').css({
+						'background-color':'#1f1f1f',
+						'border-color':'#1f1f1f'
+						});
 				}
 			});		
 			
